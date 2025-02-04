@@ -1,0 +1,25 @@
+.topbar {
+    font-weight: bold;
+    font-size: 24px;
+    color: rgb(209, 0, 115);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: rgb(19, 0, 43);
+    padding: 16px;
+    /*    
+    position: absolute;
+    top: 0px;
+    */
+}
+
+.barLink {
+    color: rgb(3, 171, 171);
+    padding: 16px;
+}
+
+.barLink:hover {
+    color: rgb(176, 228, 175);
+    font-weight: bold;
+    transition: 0.1s;
+}
