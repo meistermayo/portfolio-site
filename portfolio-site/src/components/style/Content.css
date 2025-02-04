@@ -1,0 +1,7 @@
+.content {
+  background-color: rgb(30, 30, 30);
+  width: 640px;
+  margin: 0 auto 0 auto;
+  padding: 32px; /* ??? */
+  flex: 1;
+}

@@ -1,0 +1,8 @@
+.profileImage {
+    border-radius: 50%;
+}
+
+/*override haha*/
+.content {
+  background-color: transparent !important;
+}
