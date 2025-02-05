@@ -13,7 +13,7 @@ export default function IK() {
         </div>)}/>
 
         <IKCard title={"IK and Fabrik"} flip={false} video={"IK.mp4"} desc={(<div>
-            The solver I used for Inverse Kinematics is known as <a href="//andreasaristidou.com/FABRIK.html">FABRIK (Forwards and Backwards Reaching Inverse Kinematics). </a>
+            The solver I used for Inverse Kinematics is known as <a className="inLink" href="//andreasaristidou.com/FABRIK.html">FABRIK (Forwards and Backwards Reaching Inverse Kinematics). </a>
             It is a simple algorithm that works in two parts.
             <br/><br/>
             For the "Forwards Reaching" part, it points bones in an IK Chain towards their destination, and moves them towards it. 
@@ -22,7 +22,7 @@ export default function IK() {
             This algorithm requires an understanding of world transform matrices, and unit vectors.
             <br/><br/>
             I was selected by the instructor to present my project to the class. 
-            <a href="//docs.google.com/presentation/d/1awgrBYyVExXfm1Ny7xwnI_YSn-4Was9srpqxJDrzeqE/edit?usp=sharing">The presentation can be found here, with a longer explanation of IK nuances. (Along with animation)</a>
+            <a className="inLink" href="//docs.google.com/presentation/d/1awgrBYyVExXfm1Ny7xwnI_YSn-4Was9srpqxJDrzeqE/edit?usp=sharing">The presentation can be found here, with a longer explanation of IK nuances. (Along with animation)</a>
         </div>)}/>
 
         <IKCard title={"Animation"} flip={true} video={"SpiderHeadBoss.mp4"} desc={(<div>

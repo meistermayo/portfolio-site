@@ -14,7 +14,7 @@ export default function IKCard({title, desc, video, flip} : Props){
             <h3>{title}</h3>
             <div className="container">
                 <div className={flip ? "leftText" : "rightText"}>
-                    <div >{(desc)}</div>
+                    <div className={"text"} >{(desc)}</div>
                 </div>
                 <div className={flip ? "rightText" : "leftText"}>
                     <video className={"vid"} src={video}></video>
