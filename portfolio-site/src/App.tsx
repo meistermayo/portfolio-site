@@ -8,6 +8,7 @@ import Content from './components/Content'
 import Work from './pages/Work'
 import Programming from './pages/Programming'
 import IK from './pages/IK'
+import Music from './pages/Music'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/Work" element={<Work/>}/>
           <Route path="/Programming" element={<Programming/>}/>
           <Route path="/IK" element={<IK/>}/>
+          <Route path="/Music" element={<Music/>}/>
           <Route path="/mypage" element={<MyPage/>}/>
         </Routes>
       </Content>
