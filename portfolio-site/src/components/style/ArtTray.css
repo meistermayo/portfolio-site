@@ -1,0 +1,14 @@
+.container {
+    display: block;
+    justify-content: center;
+    background-color: rgb(76, 15, 43);
+    border-radius: 16px;
+    height: 200px;
+    margin: 32px 0;
+}
+
+.imageContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+}

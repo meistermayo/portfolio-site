@@ -1,0 +1,10 @@
+.imageWrapper {
+    display:flex;
+    justify-content: center;
+    border-radius: 32px;
+    align-items: center;
+    box-shadow: 0px 10px 25px rgb(0, 0, 0);
+}
+
+.image {
+}
