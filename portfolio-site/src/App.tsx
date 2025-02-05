@@ -6,6 +6,8 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Content from './components/Content'
 import Work from './pages/Work'
+import Programming from './pages/Programming'
+import IK from './pages/IK'
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/Work" element={<Work/>}/>
+          <Route path="/Programming" element={<Programming/>}/>
+          <Route path="/IK" element={<IK/>}/>
           <Route path="/mypage" element={<MyPage/>}/>
         </Routes>
       </Content>
