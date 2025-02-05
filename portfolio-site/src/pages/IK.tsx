@@ -38,7 +38,12 @@ export default function IK() {
             These are stored in AnimationControllers via a hashmap to associate animations with names. Under the hood, the controller 
             has a pointer to its current animation within the hashmap, and the user passes in names to change the animation.
         </div>)}/>
-        Hik
+            <h1>RESULT</h1>
+            <p>
+            The result is a simple, easy to use interface for creating and animating game characters with IK Animations.
+            <br/><br/>
+            A definite improvement to the system would be adding in bezier curve support to allow the animation's interpolations to be more nuanced.
+            </p>
         </>
     )
 }

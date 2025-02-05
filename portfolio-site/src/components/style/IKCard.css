@@ -1,2 +1,23 @@
 .ikcard {
 }
+
+.container {
+    display: flex;
+}
+.leftText {
+    flex:1;
+    position:relative;
+    width: 50%;
+}
+
+.rightText {
+    flex:1;
+    position:relative;
+    right: 0px;
+    width: 50%;
+}
+
+.vid {
+    width: 100px;
+    height: 100px;
+}
