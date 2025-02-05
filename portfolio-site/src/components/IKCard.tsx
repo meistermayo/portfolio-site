@@ -12,7 +12,7 @@ export default function IKCard({title, desc, video, flip} : Props){
     return (
         <div className="ikcard">
             <h3>{title}</h3>
-            <div className="container">
+            <div className="ikContainer">
                 <div className={flip ? "leftText" : "rightText"}>
                     <div className={"text"} >{(desc)}</div>
                 </div>

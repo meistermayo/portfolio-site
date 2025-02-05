@@ -11,7 +11,7 @@ export default function Music(){
             I've made lots of music of various genres. I've made orchestral tracks, lofi, chiptunes, and various flavors of EDM.
             </div>
                 <h1>Bass Music</h1>
-                <div className="container">
+                <div className="musicContainer">
                     <SoundcloudCard track_id="1743224562"/>
                     <SoundcloudCard track_id="1683545013"/>
                 </div>
