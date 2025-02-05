@@ -2,7 +2,9 @@
     margin: 16px;
     padding: 16px;
     border-radius: 48px;
-    background: linear-gradient(45deg, rgb(71, 0, 39), rgb(149, 141, 177),rgb(7, 22, 46));
+    border: 2px;
+    border-style: solid;
+    border-color:rgb(23, 203, 152);
 }
 
 iframe {
