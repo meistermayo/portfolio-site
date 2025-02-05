@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 export default function Home() {
     return (
         <div>
-            <img className="profileImage" src="/me af.jpg"/>
+            <div style={{margin: "auto", width: 438, height: 438}}>
+                <img className="profileImage" src="/me af.jpg"/>
+            </div>
             <h1>LUKE MAYO</h1>
             <Link to="Work"><u>View My Work</u></Link>
             <p>Hi, I'm Luke! I'm a technical creative from Chicago with a habit of wearing lots of hats. 

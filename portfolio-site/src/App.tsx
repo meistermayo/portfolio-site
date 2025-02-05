@@ -5,6 +5,7 @@ import Topbar from './components/Topbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Content from './components/Content'
+import Work from './pages/Work'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Content>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/Work" element={<Work/>}/>
           <Route path="/mypage" element={<MyPage/>}/>
         </Routes>
       </Content>

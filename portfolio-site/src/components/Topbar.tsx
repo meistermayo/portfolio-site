@@ -7,10 +7,10 @@ export default function Topbar() {
             <h3>Luke Mayo<br/></h3>
             <div className="links">
                 <Link to="">About</Link>
-                <Link to="">Work</Link>
-                <Link to="">Programming</Link>
-                <Link to="">Music</Link>
-                <Link to="">Art</Link>
+                <Link to="Work">Work</Link>
+                <Link to="Programming">Programming</Link>
+                <Link to="Music">Music</Link>
+                <Link to="Art">Art</Link>
                 <Link to="MyPage">MyPAge!!!</Link>
             </div>
         </div>

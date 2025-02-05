@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="footer">
             <h2>GET IN TOUCH</h2>
             <h4>Email:</h4>
-            <p>mayom.luke@gmail.com:</p>
+            <p>mayom.luke@gmail.com</p>
             <h4>Social Media:</h4>
             <a href="https://www.linkedin.com/in/luke-mayo-1311bb132/">LinkedIn :3</a>
         </div>

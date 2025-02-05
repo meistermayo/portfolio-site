@@ -62,13 +62,10 @@ a:hover {
 html {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
-  width: 100%;
-  height: 100%;
 }
 
 body {
   width: 100%;
-  height: 100%;
   background-color: rgb(71, 0, 39);
   margin: 0 0 0 0;
   padding: 0 0 0 0;
