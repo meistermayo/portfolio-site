@@ -5,6 +5,7 @@ export default function Topbar() {
     return (
         <div className="topbar">
             <h3>Luke Mayo<br/></h3>
+            
             <div className="links">
                 <Link to="">About</Link>
                 <Link to="Work">Work</Link>
