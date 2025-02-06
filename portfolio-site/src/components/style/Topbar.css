@@ -10,6 +10,15 @@
 }
 
 .links {
+    display: flex;
+    height:32px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.linksMobile {
     /*touch-action: cross-slide-x; ??? */
     /*touch-action: pan-x; ??? */
     overflow-x:scroll;
