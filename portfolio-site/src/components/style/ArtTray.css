@@ -1,14 +1,23 @@
-.container {
+.trayWrapper {
     display: block;
     justify-content: center;
     background-color: rgb(76, 15, 43);
+    border: 2px solid black;
     border-radius: 16px;
-    height: 200px;
-    margin: 32px 0;
+    padding: 32px;
+    margin: 64px 0;
 }
 
 .imageContainer {
     display: grid;
+    place-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+}
+
+.imageContainerMobile {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
     width: 100%;
 }

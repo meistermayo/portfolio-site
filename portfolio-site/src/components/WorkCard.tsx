@@ -11,8 +11,8 @@ export default function WorkCard({img, link, title, desc}: Props) {
     return (
         <div>
             <div className="background">
-                <div style={{margin: "auto", width: 379, height: 210}}>
-                    <img src={img}></img>
+                <div className="workImgWrapper">
+                    <img className="workImg" src={img}></img>
                 </div>
                 <h3>{title}</h3>
                 <p>{desc}</p>

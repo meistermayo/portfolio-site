@@ -5,8 +5,16 @@
     background-color: rgb(71, 0, 39);
 }
 
-img {
+.workImgWrapper {
+    margin: auto;
+    width: fit-content;
+    padding: 0;
+}
+
+.workImg {
     border-radius: 32px;
+    width: 100%;
+    height: 100%;
 }
 
 button {

@@ -7,10 +7,11 @@ interface Props {
 }
 
 export default function ArtTray({title, images}: Props) {
+    const isMobile = window.innerWidth <= 768;
     return (
-        <div className="container">
+        <div className="trayWrapper">
             <h2>{title}</h2>
-            <div className="imageContainer">
+            <div className={isMobile ? "imageContainerMobile" : "imageContainer"}>
                 {images.map((i) => 
                     (
                         <div>
