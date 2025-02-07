@@ -1,3 +1,4 @@
+import SuperText from "../components/SuperText";
 import "./style/Home.css"
 import { Link } from "react-router-dom";
 
@@ -14,6 +15,8 @@ export default function Home() {
                 When time allows, I find myself digging into editor extensions, and exploring ways to juice up deliverables. 
                 In my career to date, I've worked with AAA studios as well as independent and freelance groups. 
                 Feel free to browse my website and check out the stuff I'm working on!</p>
+                <SuperText>I'm Super!</SuperText>
+
         </div>
     )
 }

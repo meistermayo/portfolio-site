@@ -1,0 +1,21 @@
+
+.st_base {
+    font-size: 128px;
+    font-weight: bold;
+    background: transparent;
+    text-shadow: 
+        2px 0px rgb(255, 98, 0),
+        4px 0px rgb(139, 3, 83);
+    transition: 100ms;
+}
+
+.st_base:hover {
+    font-size: 150px;
+    font-weight: bold;
+    text-shadow: 
+        12px 0px rgb(255, 98, 0),
+        24px 0px rgb(139, 3, 83),
+        36px 0px rgb(87, 3, 139);
+
+    transition: 300ms;
+}
