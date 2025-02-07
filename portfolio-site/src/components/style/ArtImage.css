@@ -1,9 +1,33 @@
 .imageWrapper {
     display:flex;
     justify-content: center;
-    border-radius: 32px;
     align-items: center;
+    overflow: hidden;
+    border-radius: 32px;
+    transition: 100ms;
     box-shadow: 0px 10px 25px rgb(0, 0, 0);
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    margin:auto;
+    background: black;
+}
+
+.imageWrapper > .image {
+    opacity: 0.25;
+}
+
+.imageWrapper:hover > .image {
+    opacity: 1;
+}
+
+.imageWrapper:hover {
+    transition: 100ms;
+    box-shadow: 0px 10px 15px rgb(0, 0, 0);
+    width: 85%;
+    height: 75%;
+    background: rgba(120, 24, 56, 1);
 }
 
 .image {
