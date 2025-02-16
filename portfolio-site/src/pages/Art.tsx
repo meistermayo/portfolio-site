@@ -1,23 +1,25 @@
-import { createContext, MouseEventHandler, useState } from "react"
+import { createContext, useState } from "react"
 import ArtTray from "../components/ArtTray"
 import "./style/Art.css"
 import ArtModal from "../components/ArtModal";
 
 interface ArtContext {
-    onClick: MouseEventHandler<HTMLImageElement>
+    onClick: (i:string) => void,
 }
 
 export const ArtContext = createContext<ArtContext>({onClick: () => {}});
+let img = "";
 
 export default function Art() {
     const [showModal, setShowModal] = useState(false);
 
-    function onClick(event: React.MouseEvent<HTMLImageElement, MouseEvent>): void {
-        console.log(event);
+
+    function onClick(i:string): void {
+        img = i;
         // send image to art modal somehow
         setShowModal(true);
     }
-
+    console.log(img);
     return (
         <>
             <div>
@@ -29,7 +31,7 @@ export default function Art() {
 
             <div className="trayContainer">
                 <ArtContext.Provider value={{onClick: onClick}}>
-                    <ArtModal show={showModal} setShow={setShowModal} img={"ui1.png"}/>
+                    <ArtModal show={showModal} setShow={setShowModal} img={img}/>
                     <ArtTray title="Vector Art / UI" images={["ui1.png", 'ui2.png', 'ui3.png', 'ui4.png', 'ui5.png']}/>
                     <ArtTray title="Track Cover Art" images={["sk24 icon.png","track1.PNG","track2.png","track3.png","track4.png",]}/>
                     <ArtTray title="Fantasy Card Art" images={["vivia full.png", "card1.png", "card2.png", "card3.png", "card4.png"]}/>

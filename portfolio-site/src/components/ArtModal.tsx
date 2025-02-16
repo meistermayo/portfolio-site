@@ -25,7 +25,9 @@ export default function ArtModal({show, setShow, img}: Props) {
     return show && (
         <div className="artModal">
             <button onClick={()=>{setShow(false)}}>X</button>
-            <img src={img}/>
+            <div className="modalImgContainer">
+                <img src={img}/>
+            </div>
         </div>
     )
 }

@@ -11,7 +11,7 @@ export default function ArtImage({src}: Props) {
 
     return (
         <div className="imageWrapper">
-            <img className="image" src={src} onClick={artContext.onClick}/>
+            <img className="image" src={src} onClick={() => artContext.onClick(src)}/>
         </div>
     )
 }
