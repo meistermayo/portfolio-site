@@ -12,11 +12,12 @@ export default function ArtTray({title, images}: Props) {
         <div className="trayWrapper">
             <h2>{title}</h2>
             <div className={isMobile ? "imagesContainerMobile" : "imagesContainer"}>
-                {images.map((i, index) => 
+                {images.map(
+                (i, index) => 
                     (
-                        <div>
-                            <ArtImage key={index} src={i}/>
-                        </div>
+                    <div key={index}>
+                        <ArtImage key={index} src={i}/>
+                    </div>
                     )
                 )}
             </div>

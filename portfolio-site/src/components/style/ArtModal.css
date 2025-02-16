@@ -1,0 +1,25 @@
+.artModal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(0deg, transparent -50%, #6f1358 110%);
+    z-index: 1;
+    transition: 100ms;
+}
+
+.artModal button {
+    position: fixed;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+}
+
+.artModal img {
+    position: fixed;
+    left: 25vw;
+    width: 50%;
+    top: 45%;
+}
