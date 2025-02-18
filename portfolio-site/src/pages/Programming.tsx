@@ -1,16 +1,16 @@
 import WorkCard from "../components/WorkCard"
 import "./style/Programming.css"
+import PageHeader from "../components/PageHeader"
 
 export default function Programming() {
     const displayGameEngine = false;
 
     return (
         <>
-        <h1>Programming</h1>
-        <p>
-        I work in C++ and C#. Included below are a collection of coursework and personal projects in Unity and raw C++.
-        Included in this collection are gameplay oriented projects as well as engine-level tools.
-        </p>
+        <PageHeader title="Programming">
+            I work in C++ and C#. Included below are a collection of coursework and personal projects in Unity and raw C++.
+            Included in this collection are gameplay oriented projects as well as engine-level tools.
+        </PageHeader>
 
         <WorkCard title={"Senior Project"} img={"POC.png"} link={"//depaulgames.cdm.depaul.edu/pillars-of-creation/"} desc={"Pillars of Creation is a real-time online trading card game, developed with C# in Unity. I handled a lot of the coding for this project as well as visual and gameplay design. "}/>
         <WorkCard title={"Github"} img={"BoardMeshModuleSquare_PNG.png"} link={"//github.com/meistermayo"} desc={"Building Unity modules for gameplay features and workflow improvements. Features editor extension work."}/>

@@ -1,8 +1,13 @@
 import WorkCard from "../components/WorkCard";
+import PageHeader from "../components/PageHeader"
 
 export default function Work() {
     return (
         <div>
+            <PageHeader title="Work">
+                I've worked with Chicago indies!
+            </PageHeader>
+
             <WorkCard img={"disbelief.png"} title={"Programmer I"} link={"//disbelief.com/"} desc={"Solved close-to-the-wire graphics issues on Minecraft's RenderDragon release and nativized UE4 Blueprints for an upcoming VR game, improving editor load times."}/>
             <WorkCard img={"roblox.png"} title={"Gameplay Engineer"} link={"//roblox.com/games/5611648039/Murder-Party"} desc={"Collaborated with a fully-remote game development team for the Roblox platform. Fully owned features from concept to completion, achieving top-of-the-platform retention on a self-led project."}/>
             <WorkCard img={"somasim.jpg"} title={"UI Programmer"} link={"//store.steampowered.com/app/1386780/City_of_Gangsters/"} desc={"Provided UI support for prohibition-era strategy game City of Gangsters. Maintained and updated existing UI Prefabs and Scripts. Implemented new ones for use throughout the game, following specifications."}/>

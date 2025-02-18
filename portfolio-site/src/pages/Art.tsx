@@ -3,6 +3,8 @@ import ArtTray from "../components/ArtTray"
 import "./style/Art.css"
 import ArtModal from "../components/ArtModal";
 
+import PageHeader from "../components/PageHeader"
+
 interface ArtContext {
     onClick: (i:string) => void,
 }
@@ -22,12 +24,12 @@ export default function Art() {
     console.log(img);
     return (
         <>
-            <div>
+            <PageHeader title="Art">
                 I work in raster-based art software as well as vector-based art software.
                 In addition to game art, I also make track art for my work on Soundcloud.
                 I can make a wide variety of assets from Vector-based UI elements, low-res pixel art, 
                 high-res illustration, and 3d models
-            </div>
+            </PageHeader>
 
             <div className="trayContainer">
                 <ArtContext.Provider value={{onClick: onClick}}>
