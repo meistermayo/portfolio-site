@@ -1,17 +1,22 @@
 .imageWrapper {
-    display:flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
     border-radius: 32px;
     transition: 100ms;
     box-shadow: 0px 10px 25px rgb(0, 0, 0);
-    width: 75%;
-    height: 75%;
+    width: 10vw;
     object-fit: cover;
     aspect-ratio: 1/1;
-    margin:auto;
+    margin: auto;
     background: black;
+    border: 0px solid rgb(255, 255, 255);
+}
+
+.imageWrapper:hover {
+    transition: 200ms;
+    box-shadow: 0px 10px 15px rgb(0, 0, 0);
+    width: 12vw;
+    background: rgba(120, 24, 56, 1);
+    border: 16px solid rgb(21, 211, 160);
 }
 
 .imageWrapper > .image {
@@ -20,14 +25,6 @@
 
 .imageWrapper:hover > .image {
     opacity: 1;
-}
-
-.imageWrapper:hover {
-    transition: 100ms;
-    box-shadow: 0px 10px 15px rgb(0, 0, 0);
-    width: 85%;
-    height: 75%;
-    background: rgba(120, 24, 56, 1);
 }
 
 .image {
