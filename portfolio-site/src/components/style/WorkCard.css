@@ -2,12 +2,16 @@
     border-radius: 32px;
     padding: 32px;
     margin: 32px;
-    background-color: rgb(71, 0, 39);
+    background-color: var(--col_bg);
 }
 
 .workImgWrapper {
+    border-radius: 32px;
+    background-color: var(--col_loading);
     margin: auto;
     width: fit-content;
+    min-width: 210px;
+    height:210px;
     padding: 0;
 }
 
@@ -23,8 +27,8 @@ button {
     min-height: 64px;
     min-width: 128px;
     border-radius: 16px;
-    background-color: rgb(209, 0, 115);
-    color: rgb(71, 0, 39);
+    background-color: var(--col_bigtxt);
+    color: var(--col_bg);
     transition: 200ms;
 }
 
@@ -34,7 +38,7 @@ button:hover{
     min-height: 64px;
     min-width: 128px;
     border-radius: 16px;
-    background-color: rgb(118, 209, 0);
-    color: rgb(209,0,115);
+    background-color: var(--col_bg_a);
+    color: var(--col_bigtxt);
     transition: 200ms;
 }

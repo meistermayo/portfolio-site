@@ -1,7 +1,7 @@
 .trayWrapper {
     display: block;
     justify-content: center;
-    background-color: rgb(76, 15, 43);
+    background-color: var(--col_bg);
     border: 2px solid black;
     border-radius: 16px;
     padding: 32px;

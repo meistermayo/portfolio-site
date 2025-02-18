@@ -1,6 +1,6 @@
 
 .line {
-    background-color: rgb(209, 0, 115);
+    background-color: var(--col_bigtxt);
     width: 100%;
     height: 4px;
 }

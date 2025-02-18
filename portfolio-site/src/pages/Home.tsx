@@ -1,11 +1,13 @@
 import SuperText from "../components/SuperText";
 import "./style/Home.css"
 import { Link } from "react-router-dom";
+import reactLogo from '../assets/react.svg'
+import viteLogo from '/vite.svg'
 
 export default function Home() {
     return (
         <div>
-            <div style={{margin: "auto", width: "100%", height: "100%"}}>
+            <div className="homeImageWrapper">
                 <img className="profileImage" src="/me af.jpg"/>
             </div>
             <h1>LUKE MAYO</h1>
@@ -14,8 +16,19 @@ export default function Home() {
                 I'm an avid game developer, proficient in C++ and C#, with a passion for design and a hand in art and music. 
                 When time allows, I find myself digging into editor extensions, and exploring ways to juice up deliverables. 
                 In my career to date, I've worked with AAA studios as well as independent and freelance groups. 
-                Feel free to browse my website and check out the stuff I'm working on!</p>
-                <SuperText>I'm Super!</SuperText>
+                Feel free to browse my website and check out the stuff I'm working on!
+                <br/>
+                <br/>
+                Built in React.js + Vite!<br/>
+                
+                <a href="https://vite.dev" target="_blank">
+                <img src={viteLogo} className="logo" alt="Vite logo" />
+                </a>
+                <a href="https://react.dev" target="_blank">
+                <img src={reactLogo} className="logo react" alt="React logo" />
+                </a>
+            </p>
+            <SuperText>I'm Super!</SuperText>
 
         </div>
     )

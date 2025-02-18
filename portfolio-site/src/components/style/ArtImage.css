@@ -15,7 +15,7 @@
     transition: 200ms;
     box-shadow: 0px 10px 15px rgb(0, 0, 0);
     width: 12vw;
-    background: rgba(120, 24, 56, 1);
+    background: rgba(120, 24, 56, 255);
     border: 16px solid rgb(21, 211, 160);
 }
 

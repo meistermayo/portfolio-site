@@ -13,6 +13,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --col_bg: rgb(71, 0, 39);
+  --col_bgrey: rgb(30, 30, 30);
+  --col_bigtxt: rgb(209, 0, 115);
+  --col_bg_a: rgb(118, 209, 0);
+  --col_loading: rgb(62, 62, 62);
 }
 
 p {
@@ -26,7 +32,7 @@ h1 {
 
   letter-spacing: 8px;
   font-weight: bold;
-  color: rgb(209, 0, 115);
+  color: var(--col_bigtxt);
 }
 
 h2 {
@@ -38,7 +44,7 @@ h2 {
 h3 {
   font-size: 2em;
   font-weight: bold;
-  color: rgb(209, 0, 115);
+  color: var(--col_bigtxt);
 }
 
 h4 {

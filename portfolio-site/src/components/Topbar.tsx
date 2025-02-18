@@ -14,7 +14,6 @@ export default function Topbar() {
                 <Link to="Programming">Programming</Link>
                 <Link to="Music">Music</Link>
                 <Link to="Art">Art</Link>
-                <Link to="MyPage">MyPAge!!!</Link>
             </div>
         </div>
     )

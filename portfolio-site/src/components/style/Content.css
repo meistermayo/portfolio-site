@@ -1,5 +1,5 @@
 .content {
-  background-color: rgb(30, 30, 30);
+  background-color: var(--col_bgrey);
   width: 75%;
   margin: 0 auto 0 auto;
   padding: 32px; /* ??? */

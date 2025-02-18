@@ -1,5 +1,5 @@
 .footer {
-    background-color: rgb(30,30,30);
+    background-color: var(--col_bgrey);
     margin: 0;
     padding: 16px;
 }

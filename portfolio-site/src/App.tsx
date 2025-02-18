@@ -1,6 +1,5 @@
 import './style/App.css'
 import { Route, Routes } from 'react-router-dom'
-import MyPage from './pages/MyPage'
 import Topbar from './components/Topbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -24,7 +23,6 @@ function App() {
           <Route path="/IK" element={<IK/>}/>
           <Route path="/Music" element={<Music/>}/>
           <Route path="/Art" element={<Art/>}/>
-          <Route path="/mypage" element={<MyPage/>}/>
         </Routes>
       </Content>
     <Footer/>
