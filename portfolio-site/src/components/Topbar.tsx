@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 import "./style/Topbar.css"
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function Topbar() {
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = useIsMobile();
 
     return (
         <div className="topbar">

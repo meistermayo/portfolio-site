@@ -1,3 +1,4 @@
+import useIsMobile from "../hooks/useIsMobile"
 import ArtImage from "./ArtImage"
 import "./style/ArtTray.css"
 
@@ -7,7 +8,8 @@ interface Props {
 }
 
 export default function ArtTray({title, images}: Props) {
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = useIsMobile();
+    
     return (
         <div className="trayWrapper">
             <h2>{title}</h2>
