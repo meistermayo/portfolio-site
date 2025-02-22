@@ -7,7 +7,7 @@ export default function Programming() {
 
     return (
         <>
-        <PageHeader title="Programming">
+        <PageHeader title="Projects">
             I work in C++ and C#. Included below are a collection of coursework and personal projects in Unity and raw C++.
             Included in this collection are gameplay oriented projects as well as engine-level tools.
         </PageHeader>

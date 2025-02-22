@@ -11,8 +11,7 @@ export default function Topbar() {
             
             <div className={isMobile ? "linksMobile" : "links"}>
                 <Link to="">About</Link>
-                <Link to="Work">Work</Link>
-                <Link to="Programming">Programming</Link>
+                <Link to="Programming">Projects</Link>
                 <Link to="Music">Music</Link>
                 <Link to="Art">Art</Link>
             </div>

@@ -2,6 +2,14 @@
   background-color: var(--col_bgrey);
   width: 75%;
   margin: 0 auto 0 auto;
-  padding: 32px; /* ??? */
+  padding: 32px;
+  flex: 1;
+}
+
+.contentMobile {
+  background-color: var(--col_bgrey);
+  width: 85%;
+  margin: 0 auto 0 auto;
+  padding: 5vw; /* ??? */
   flex: 1;
 }

@@ -1,6 +1,6 @@
 
 .st_base {
-    font-size: 128px;
+    font-size: 10em;
     font-weight: bold;
     background: transparent;
     text-shadow: 
@@ -10,7 +10,7 @@
 }
 
 .st_base:hover {
-    font-size: 150px;
+    font-size: 12em;
     font-weight: bold;
     text-shadow: 
         12px 0px rgb(255, 98, 0),
