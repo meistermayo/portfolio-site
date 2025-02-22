@@ -3,8 +3,11 @@ import SoundcloudPlaylistCard from "../components/SoundcloudPlaylistCard"
 import PageHeader from "../components/PageHeader"
 
 import "./style/Music.css"
+import useIsMobile from "../hooks/useIsMobile"
 
 export default function Music(){
+    const isMobile = useIsMobile()
+
     return (
         <div>
             <PageHeader title="Music">
@@ -15,7 +18,7 @@ export default function Music(){
 
             <div style={{paddingTop: 32, paddingBottom:32}}>
 
-                <div className="musicContainer">
+                <div className={isMobile ? "musicContainerMobile" : "musicContainer"}>
                     <div>
                         <h3>EDM / Bass Music</h3>
                         <SoundcloudPlaylistCard playlist_id="1658762536"/>

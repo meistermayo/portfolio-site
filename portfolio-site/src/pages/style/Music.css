@@ -2,3 +2,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+.musicContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+}
