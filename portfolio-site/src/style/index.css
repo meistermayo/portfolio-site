@@ -13,11 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
 
   --col_bg: rgb(71, 0, 39);
-  --col_bgrey: rgb(30, 30, 30);
+  --col_bgrey: rgb(0, 0, 10);
   --col_bigtxt: rgb(209, 0, 115);
   --col_bg_a: rgb(118, 209, 0);
-  --col_loading: rgb(62, 62, 62);
-  --col_footer: rgb(19, 0, 43);
+  --col_loading: rgb(0, 0, 0);
+  --col_footer: rgb(0, 0, 10);
+  --col_bg_cyan: rgb(23, 203, 152);
 }
 
 p {

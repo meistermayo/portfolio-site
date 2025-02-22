@@ -2,6 +2,7 @@
     background-color: var(--col_footer);
     margin: 0;
     padding: 48px;
+    border-top: 4px var(--col_bg_cyan) solid;
 }
 
 .headerText {
