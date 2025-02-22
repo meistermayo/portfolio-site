@@ -17,6 +17,7 @@
   --col_bigtxt: rgb(209, 0, 115);
   --col_bg_a: rgb(118, 209, 0);
   --col_loading: rgb(62, 62, 62);
+  --col_footer: rgb(19, 0, 43);
 }
 
 p {
@@ -25,7 +26,7 @@ p {
 }
 
 h1 {
-  font-size: 5em;
+  font-size: 4em;
   line-height: 1.1;
 
   letter-spacing: 8px;

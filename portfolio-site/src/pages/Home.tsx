@@ -16,18 +16,16 @@ export default function Home() {
                     <img className="profileImage" src="/me af.jpg"/>
                 </div>
                 <h1>LUKE MAYO</h1>
-                <Link to="Work"><u>View My Work</u></Link>
                 <p>
-                    Savvy software engineer with work experience in C++, C# and Typescript.
-                    <br/>
-                    <br/>
-                    Built in<br></br>
+                    I'm Luke and this is my website! (
+                    Built in
                     <img src={reactLogo} className="logoIcon" alt="React logo" />
                     React.js
-                    +
+                    with
                     <img src={viteLogo} className="logoIcon" alt="Vite logo" />
-                    Vite!
+                    Vite!)
                     <br/>
+                    I'm a savvy software engineer with work experience in C++, C# and Typescript.
                     <br/>
                 </p>
             </div>
@@ -35,11 +33,12 @@ export default function Home() {
             <div>
                 <p className="textCenter">
                     Here's some places I've worked!
+                    <br/>
+                    <br/>
                 </p>
 
-                <WorkCard img={"disbelief.png"} title={"Game U - Game Design Instructor"} link={"//disbelief.com/"}>
-                Solved close-to-the-wire graphics issues on Minecraft's RenderDragon release and
-                nativized UE4 Blueprints for an upcoming VR game, improving editor load times.
+                <WorkCard img={"disbelief.png"} title={"Game U - Game Design Instructor"} link={"//www.game-u.com/"}>
+                Taught a variety of courses in HTML/JS/CSS, C#, and Lua.
                 </WorkCard>
 
                 <WorkCard img={"disbelief.png"} title={"Disbelief - Programmer I"} link={"//disbelief.com/"}>
@@ -59,10 +58,9 @@ export default function Home() {
                 </WorkCard>
 
                 <WorkCard img={"mk11.jpg"} title={"Netherrealm Studios - Junior Associate Software Engineer"} link={"//mortalkombat.com/en-us"}>
-                Worked on Mortal Kombat 11 with the Koretech team to develop and extend tools
-                to assist the gameplay programmers and designers.
-                Work involved a survey of tools and technologies, porting code from C++ to C#,
-                developing web dashboards in Vue.js, and implementing Qt as a UI solution.
+                Joined the infamous studio behind Mortal Kombat 11, building and maintaining tools with the Koretech team.
+                Used a variety of tools and technologies, porting code from C++ to C#,
+                developing web dashboards in Vue.js, and developing a UI solution with Qt.
                 </WorkCard>
 
                 <WorkCard img={"american medina.png"} title={"American Medina - Software Engineer"} link={"//chicagohistory.org/american-medina-stories-of-muslim-chicago-2/"}>
@@ -75,8 +73,6 @@ export default function Home() {
                 Worked primarily in C++, exposing functionality to designers.
                 </WorkCard>
             </div>
-            <SuperText>I'm Super!</SuperText>
-
         </div>
     )
 }

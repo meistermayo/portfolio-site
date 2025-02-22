@@ -6,7 +6,7 @@
     margin-top: auto;
     text-align: center;
     overflow: hidden;
-    background-color: rgb(19, 0, 43);
+    background-color: var(--col_footer);
 }
 
 .links {

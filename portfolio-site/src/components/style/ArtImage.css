@@ -3,7 +3,7 @@
     border-radius: 32px;
     transition: 100ms;
     box-shadow: 0px 10px 25px rgb(0, 0, 0);
-    width: 10vw;
+    width: 200px;
     object-fit: cover;
     aspect-ratio: 1/1;
     justify-content: center;
@@ -17,16 +17,49 @@
 .imageWrapper:hover {
     transition: 200ms;
     box-shadow: 0px 10px 15px rgb(0, 0, 0);
-    width: 12vw;
+    width: 220px;
     background: rgba(120, 24, 56, 255);
     border: 16px solid rgb(21, 211, 160);
 }
+
+.imageWrapperMobile {
+    overflow: hidden;
+    border-radius: 32px;
+    transition: 100ms;
+    box-shadow: 0px 10px 25px rgb(0, 0, 0);
+    width: 40vw;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    justify-content: center;
+    margin: 0 0 64px 0;
+    align-items: center;
+    background: black;
+    border: 0px solid rgb(255, 255, 255);
+    touch-action: none;
+}
+
+.imageWrapperMobile:hover {
+    transition: 200ms;
+    box-shadow: 0px 10px 15px rgb(0, 0, 0);
+    width: 45vw;
+    background: rgba(120, 24, 56, 255);
+    border: 16px solid rgb(21, 211, 160);
+}
+
 
 .imageWrapper > .image {
     opacity: 0.25;
 }
 
 .imageWrapper:hover > .image {
+    opacity: 1;
+}
+
+.imageWrapperMobile > .image {
+    opacity: 0.25;
+}
+
+.imageWrapperMobile:hover > .image {
     opacity: 1;
 }
 

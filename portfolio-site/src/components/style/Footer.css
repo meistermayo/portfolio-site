@@ -1,5 +1,13 @@
 .footer {
-    background-color: var(--col_bgrey);
+    background-color: var(--col_footer);
     margin: 0;
-    padding: 16px;
+    padding: 48px;
+}
+
+.headerText {
+    margin:0;
+}
+
+.headerText {
+    margin:0;
 }

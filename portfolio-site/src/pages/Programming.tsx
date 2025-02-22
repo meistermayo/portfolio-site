@@ -1,6 +1,8 @@
 import WorkCard from "../components/WorkCard"
 import "./style/Programming.css"
 import PageHeader from "../components/PageHeader"
+import reactLogo from '../assets/react.svg'
+import viteLogo from '/vite.svg'
 
 export default function Programming() {
     const displayGameEngine = false;
@@ -8,25 +10,34 @@ export default function Programming() {
     return (
         <>
         <PageHeader title="Projects">
-            I work in C++ and C#. Included below are a collection of coursework and personal projects in Unity and raw C++.
-            Included in this collection are gameplay oriented projects as well as engine-level tools.
+            I've worked with a lot of technologies and languages in my career.
+            Here are some projects I've worked on in my freetime, involving C++, C#, and Typescript. 
         </PageHeader>
+        <br/>
 
+        <WorkCard title={"That Time I Got Trapped In An Office Dungeon"} img={"POC.png"} link={"//heylezl.itch.io/that-time-i-got-trapped-in-a-office-dungeon-with-a-headset-strapped-to-my-face"}>
+            Chicaghoul 2024 gamejam project that reached over <b>100,000 plays</b> on gx.games! I handled HLSL coding, C# scripting, and audio.
+        </WorkCard>
         <WorkCard title={"Senior Project"} img={"POC.png"} link={"//depaulgames.cdm.depaul.edu/pillars-of-creation/"}>
             Pillars of Creation is a real-time online trading card game, developed with C# in Unity.
-            I handled a lot of the coding for this project as well as visual and gameplay design.
-        </WorkCard>
-        <WorkCard title={"Github"} img={"BoardMeshModuleSquare_PNG.png"} link={"//github.com/meistermayo"}>
-            Building Unity modules for gameplay features and workflow improvements.
-            Features editor extension work.
+            During this project, I solved difficult networking bugs involving race conditions.
         </WorkCard>
         {displayGameEngine && 
         <WorkCard title={"Game Engine"} img={"spiderhead.jpg"} link={"/IK"} >
             Developed IK and animation systems and API for a custom game engine at DePaul University, in C++.
         </WorkCard>
         }
-        <WorkCard title={"Personal Projects"} img={"dwellingicon_edited.jpg"} link={"//lukemayo.itch.io/"}>
-            A slew of Game Jam projects, personal projects, and school projects. Primarily using Unity and C#.
+        <WorkCard title={"Itch.io"} img={"dwellingicon_edited.jpg"} link={"//lukemayo.itch.io/"}>
+            A large collection of game projects. My best work in Unity and Unreal on display.
+        </WorkCard>
+        <WorkCard title={"This Website"} img={"POC.png"} link={"//lukemayo.net"}>
+            You're looking at it!
+            Built in
+            <img src={reactLogo} className="logoIcon" alt="React logo" />
+            React.js
+            with
+            <img src={viteLogo} className="logoIcon" alt="Vite logo" />
+            Vite!
         </WorkCard>
     </>
     )

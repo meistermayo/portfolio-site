@@ -11,10 +11,12 @@
 
 .artModal button {
     position: fixed;
-    right: 32px;
-    top: 32px;
-    width: 32px;
-    height: 32px;
+    right: 16px;
+    top: 16px;
+    width: 128px;
+    height: 64px;
+    background-color: var(--col_bg);
+    color: var(--col_bigtxt);
 }
 
 .artModal img {

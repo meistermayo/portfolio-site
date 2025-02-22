@@ -10,10 +10,8 @@ export default function Music(){
 
     return (
         <div>
-            <PageHeader title="Music">
-                I love making music from all sides. I do composition, sound design, and mixing and mastering on the music I make. 
-                Recently I've been making various flavors of EDM heavily focusing on sound design, making novel bass sounds. 
-                I've made lots of music of various genres. I've made orchestral tracks, lofi, chiptunes, and various flavors of EDM.
+            <PageHeader title="Audio">
+                In addition to programming, I enjoy music composition and sound design as a hobby. I've written a wide variety of compositions using Ableton Live 10 Suite.
             </PageHeader>
 
             <div style={{paddingTop: 32, paddingBottom:32}}>
