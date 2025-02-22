@@ -2,7 +2,7 @@ import "./style/Footer.css"
 
 export default function Footer() {
     return (
-        <div className="footer">
+        <div className="footer textCenter">
             <h2>GET IN TOUCH</h2>
             <h4>Email:</h4>
             <p>mayom.luke@gmail.com</p>

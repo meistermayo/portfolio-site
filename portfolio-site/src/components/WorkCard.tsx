@@ -1,22 +1,22 @@
+import { ReactNode } from "react";
+import Line from "./Line";
 import "./style/WorkCard.css"
 
 interface Props {
     img: string;
     title: string;
     link: string;
-    desc: string;
+    children: ReactNode;
 }
 
-export default function WorkCard({img, link, title, desc}: Props) {
+export default function WorkCard({img, link, title, children}: Props) {
     return (
-        <div>
-            <div className="background">
-                <div className="workImgWrapper">
-                    <img className="workImg" src={img}></img>
-                </div>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-                <a href={link}><button>More Info</button></a>
+        <div className="background">
+            <h3>{title}</h3>
+            <Line/>
+            <p>{children}</p>
+            <div className="buttonDiv">
+                <a className="workLinkA" href={link}><button className="workLink">More Info</button></a>
             </div>
         </div>
     )
