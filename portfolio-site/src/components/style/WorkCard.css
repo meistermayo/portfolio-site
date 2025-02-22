@@ -1,8 +1,10 @@
 .background {
+    position: relative;
     border-radius: 32px;
     padding: 32px;
     margin: 1vw 1vw 32px 1vw;
     border: 6px solid var(--col_bigtxt);
+    background: transparent;
 }
 
 
@@ -25,7 +27,31 @@
 }
 
 .workHeader {
+    position: relative;
     width: 100%;  
+    display:inline;
+}
+
+.imgWrapper {
+    -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,.25));
+    mask-image: linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,.25));
+    position:absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin: auto;
+    width: 100%;
+    overflow-y: hidden;
+    z-index: 0;
+}
+
+.imgWrapper img {
+    border-radius: 25px;
+
+    -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,1));
+    mask-image: linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,1));
+    width:100%;
 }
 
 .buttonDiv {

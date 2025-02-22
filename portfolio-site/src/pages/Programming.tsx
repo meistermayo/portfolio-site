@@ -15,11 +15,11 @@ export default function Programming() {
         </PageHeader>
         <br/>
 
-        <WorkCard title={"That Time I Got Trapped In An Office Dungeon"} img={"POC.png"} link={"//heylezl.itch.io/that-time-i-got-trapped-in-a-office-dungeon-with-a-headset-strapped-to-my-face"}>
+        <WorkCard title={"That Time I Got Trapped In An Office Dungeon"} img={"ttigtiaod.png"} link={"//heylezl.itch.io/that-time-i-got-trapped-in-a-office-dungeon-with-a-headset-strapped-to-my-face"}>
             Chicaghoul 2024 gamejam project that reached over <b>100,000 plays</b> on gx.games! I handled HLSL coding, C# scripting, and audio.
         </WorkCard>
-        <WorkCard title={"Senior Project"} img={"POC.png"} link={"//depaulgames.cdm.depaul.edu/pillars-of-creation/"}>
-            Pillars of Creation is a real-time online trading card game, developed with C# in Unity.
+        <WorkCard title={"Pillars of Creation"} img={"POC.png"} link={"//depaulgames.cdm.depaul.edu/pillars-of-creation/"}>
+            My Senior Project was a real-time online trading card game, developed with C# in Unity.
             During this project, I solved difficult networking bugs involving race conditions.
         </WorkCard>
         {displayGameEngine && 

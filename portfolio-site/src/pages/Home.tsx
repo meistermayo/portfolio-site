@@ -37,7 +37,7 @@ export default function Home() {
                     <br/>
                 </p>
 
-                <WorkCard img={"disbelief.png"} title={"Game U - Game Design Instructor"} link={"//www.game-u.com/"}>
+                <WorkCard img={"gameu.PNG"} title={"Game U - Game Design Instructor"} link={"//www.game-u.com/"}>
                 Taught a variety of courses in HTML/JS/CSS, C#, and Lua.
                 </WorkCard>
 

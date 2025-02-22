@@ -12,10 +12,15 @@ interface Props {
 export default function WorkCard({img, link, title, children}: Props) {
     return (
         <div className="background">
-            <h3>{title}</h3>
+            <div className="imgWrapper">
+                <img src={img}></img>
+            </div>
+            <div className="workHeader">
+                <h3 style={{zIndex: 1}}>{title}</h3>
+            </div>
             <Line/>
-            <p>{children}</p>
-            <div className="buttonDiv">
+            <p style={{zIndex: 1}}>{children}</p>
+            <div style={{zIndex: 1}}className="buttonDiv">
                 <a className="workLinkA" href={link}><button className="workLink">More Info</button></a>
             </div>
         </div>
