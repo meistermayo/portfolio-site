@@ -1,4 +1,3 @@
-import SoundcloudCard from "../components/SoundcloudCard"
 import SoundcloudPlaylistCard from "../components/SoundcloudPlaylistCard"
 import PageHeader from "../components/PageHeader"
 

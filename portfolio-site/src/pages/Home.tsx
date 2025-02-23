@@ -1,6 +1,4 @@
-import SuperText from "../components/SuperText";
 import "./style/Home.css"
-import { Link } from "react-router-dom";
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 import useIsMobile from "../hooks/useIsMobile";
