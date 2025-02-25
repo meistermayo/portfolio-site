@@ -30,7 +30,7 @@ export default function Programming() {
         <WorkCard title={"Itch.io"} img={"dwellingicon_edited.jpg"} link={"//lukemayo.itch.io/"}>
             A large collection of game projects. My best work in Unity and Unreal on display.
         </WorkCard>
-        <WorkCard title={"This Website"} img={"POC.png"} link={"//lukemayo.net"}>
+        <WorkCard title={"This Website"} img={"thiswebsite.PNG"} link={"//lukemayo.net"}>
             You're looking at it!
             Built in
             <img src={reactLogo} className="logoIcon" alt="React logo" />
