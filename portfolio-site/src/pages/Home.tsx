@@ -35,6 +35,12 @@ export default function Home() {
                     <br/>
                 </p>
 
+                <WorkCard img={"mentia.png"} title={"Mentia.me - Unity Content Developer"} link={"//mentia.me/"}>
+                Coordinated with artists to enforce 3d asset standards and enhance asset pipeline.
+                Spearheaded the animation retargetting effort leveraging Unity-side IK.
+                Developed gameplay functionality for designers using Ink script. 
+                </WorkCard>
+
                 <WorkCard img={"gameu.PNG"} title={"Game U - Game Design Instructor"} link={"//www.game-u.com/"}>
                 Taught a variety of courses in HTML/JS/CSS, C#, and Lua.
                 </WorkCard>
