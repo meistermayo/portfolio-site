@@ -3,12 +3,13 @@ import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 import useIsMobile from "../hooks/useIsMobile";
 import WorkCard from "../components/WorkCard";
+import FadeInWrapper from "../components/FadeInWrapper";
 
 export default function Home() {
     const isMobile = useIsMobile();
 
     return (
-        <div>
+        <FadeInWrapper>
             <div className="textCenter">
                 <div className={isMobile ? "homeImageWrapperMobile" : "homeImageWrapper"}>
                     <img className="profileImage" src="/me af.jpg"/>
@@ -77,6 +78,6 @@ export default function Home() {
                 Worked primarily in C++, exposing functionality to designers.
                 </WorkCard>
             </div>
-        </div>
+        </FadeInWrapper>
     )
 }

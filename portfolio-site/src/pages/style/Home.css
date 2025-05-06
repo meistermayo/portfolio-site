@@ -1,3 +1,7 @@
+.Home {
+    transition: 100ms;
+}
+
 .profileImage {
     border-radius: 50%;
     height: 100%;

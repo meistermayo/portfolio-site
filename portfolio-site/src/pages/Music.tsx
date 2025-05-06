@@ -3,12 +3,13 @@ import PageHeader from "../components/PageHeader"
 
 import "./style/Music.css"
 import useIsMobile from "../hooks/useIsMobile"
+import FadeInWrapper from "../components/FadeInWrapper"
 
 export default function Music(){
     const isMobile = useIsMobile()
 
     return (
-        <div>
+        <FadeInWrapper>
             <PageHeader title="Audio">
                 In addition to programming, I enjoy music composition and sound design as a hobby. I've written a wide variety of compositions using Ableton Live 10 Suite.
             </PageHeader>
@@ -36,6 +37,6 @@ export default function Music(){
                 </div>
 
             </div>
-        </div>
-    )
+        </FadeInWrapper>
+    );
 }

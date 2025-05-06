@@ -4,6 +4,7 @@ import "./style/Art.css"
 import ArtModal from "../components/ArtModal";
 
 import PageHeader from "../components/PageHeader"
+import FadeInWrapper from "../components/FadeInWrapper";
 
 interface ArtContext {
     onClick: (i:string) => void,
@@ -23,7 +24,7 @@ export default function Art() {
     }
     console.log(img);
     return (
-        <>
+        <FadeInWrapper>
             <PageHeader title="Visual">
                 In addition to being a technical-minded engineer, I dabble in art asset creation.
                 I can make a wide variety of assets from Vector-based UI elements, low-res pixel art, 
@@ -40,6 +41,6 @@ export default function Art() {
                     <ArtCard title="3D Models" images={["3d1.PNG","3d2.JPG","3d3.PNG","dirtymech.PNG","jerboa.PNG",]}/>
                 </ArtContext.Provider>
             </div>
-        </>
-    )
+        </FadeInWrapper>
+    );
 }
