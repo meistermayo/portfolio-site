@@ -8,6 +8,7 @@ import Programming from './pages/Programming'
 import IK from './pages/IK'
 import Music from './pages/Music'
 import Art from './pages/Art'
+import SourceCard from './components/SourceCard'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         </Routes>
       </Content>
     <Footer/>
+    <SourceCard/>
     </>
   )
 }
