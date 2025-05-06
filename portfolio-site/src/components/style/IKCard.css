@@ -29,13 +29,13 @@
     font-weight: 500;
     color: rgb(0, 171, 171);
     text-decoration: inherit;
-    padding: 16px;
+    padding: 16pt;
     transition: 200ms;
   }
   
 .inLink:hover {
     color: rgb(0, 228, 175);
-    font-size: 16px;
+    font-size: 16pt;
     font-weight: 500;
     transition: 200ms;
 }
