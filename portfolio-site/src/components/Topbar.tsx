@@ -14,6 +14,7 @@ export default function Topbar() {
                 <Link to="Programming">Projects</Link>
                 <Link to="Music">Audio</Link>
                 <Link to="Art">Visual</Link>
+                <Link to="MobileDisplay">Mobile Display</Link>
             </div>
         </div>
     )

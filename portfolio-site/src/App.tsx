@@ -9,6 +9,7 @@ import IK from './pages/IK'
 import Music from './pages/Music'
 import Art from './pages/Art'
 import SourceCard from './components/SourceCard'
+import MobileDisplay from './pages/MobileDisplay'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/IK" element={<IK/>}/>
           <Route path="/Music" element={<Music/>}/>
           <Route path="/Art" element={<Art/>}/>
+          <Route path="/MobileDisplay" element={<MobileDisplay/>}/>
         </Routes>
       </Content>
     <Footer/>
