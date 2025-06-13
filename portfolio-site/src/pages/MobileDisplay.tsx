@@ -66,7 +66,7 @@ export default function MobileDisplay() {
                 </ul>
             )
         }
-        <input type="range" min="0" max="100" defaultValue="50" onChange={(e) => {setSliderValue(Number(e.target.value));}}/>
+        <input type="range" min="25" max="100" defaultValue="100" onChange={(e) => {setSliderValue(Number(e.target.value));}}/>
         <DeviceSelect devices={devices} onSelect={onDeviceSelected}/>
         <select>
             <option>iPhone</option>
