@@ -1,22 +1,27 @@
 import { MutableRefObject, useRef, useEffect, useState } from "react";
-
-interface DeviceData {
-    created_at: string;
-    id: number;
-    name: string;
-    os: string;
-    type: string;
-    ppi: number;
-    height: number;
-    width: number;
-}
+import DeviceSelect from "../components/DeviceSelect";
+import { DeviceData } from "../types/DeviceData";
 
 export default function MobileDisplay() {
-    const [devices, setDevices] = useState([]);
+    const [currentDevice, setCurrentDevice] = useState<DeviceData>();
+    const [devices, setDevices] = useState<Array<DeviceData>>([]);
     const [sliderValue, setSliderValue] = useState(100);
     const [hasFetched, setFetched] = useState(false);
 
     const canvasRef: MutableRefObject<HTMLCanvasElement | null> = useRef(null);
+
+    function onDeviceSelected(e: React.ChangeEvent<HTMLSelectElement>) {
+        console.log(e.target.value);
+        const device = devices.find((d) => 
+            d.id == Number(e.target.value)
+        );
+
+        if (device != null)
+        {
+            setCurrentDevice(device);
+        }
+        console.log((device == null) ? "null" : device.name);
+    }
 
     useEffect(() => {
         if (!hasFetched)
@@ -37,33 +42,32 @@ export default function MobileDisplay() {
         if (canvasRef.current != null)
         {
             const ctx = canvasRef.current.getContext("2d");
-            if (ctx != null)
+            if (currentDevice != null && ctx != null)
             {
                 const sliderScale = sliderValue * 0.01;
                 ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
                 ctx.fillStyle = "#f06";
-                ctx.fillRect(200,40, 200*sliderScale, 100*sliderScale);
+                ctx.fillRect(200,40, currentDevice.width*sliderScale, currentDevice.height*sliderScale);
             }
         }
-    }, [sliderValue]);
+    }, [sliderValue, currentDevice]);
 
     return (<>
-        <canvas onWheel={() =>{}} style={{"backgroundColor": "#eef"}} ref={canvasRef} width={500} height={400}/>
+        <canvas onWheel={() =>{}} style={{"backgroundColor": "#eef"}} ref={canvasRef} width={900} height={400}/>
         <button onClick={() => {setFetched(false);}}>Mark dirty</button>
+        {
+            currentDevice != null && (
+                <ul>
+                    <li>{currentDevice.name}</li>
+                    <li>{currentDevice.width} px</li>
+                    <li>{currentDevice.height} px</li>
+                    <li>{Math.round(currentDevice.width/currentDevice.height * 100) / 100}</li>
+                    <li>{currentDevice.ppi} ppi</li>
+                </ul>
+            )
+        }
         <input type="range" min="0" max="100" defaultValue="50" onChange={(e) => {setSliderValue(Number(e.target.value));}}/>
-        <select>
-            {devices.length == 0 ? (
-                <option key={-1} value={-1}>None</option>
-            ) : (
-                devices.map(
-                    (d: DeviceData) => (
-                        <option key={d.id} value={d.id}>
-                            {d.name}
-                        </option>
-                    )
-                )
-            )}
-        </select>
+        <DeviceSelect devices={devices} onSelect={onDeviceSelected}/>
         <select>
             <option>iPhone</option>
             <option>iPad</option>
