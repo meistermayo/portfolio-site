@@ -1,5 +1,6 @@
 import { MutableRefObject, ReactEventHandler, useEffect, useState } from "react";
 import { DeviceData } from "../types/DeviceData";
+import "./style/MobileCanvas.css"
 
 interface vec2 {
     x: number;
@@ -31,7 +32,6 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom}
             const deltaX = e.nativeEvent.offsetX - mouseClickPos.x;
             const deltaY = e.nativeEvent.offsetY - mouseClickPos.y;
             setViewPos({x: viewPos.x + deltaX, y: viewPos.y + deltaY});
-
             setMouseClickPos({x: e.nativeEvent.offsetX, y:e. nativeEvent.offsetY});
         }
     }
@@ -47,22 +47,25 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom}
     useEffect(() => {
         if (canvasRef.current != null)
         {
+            canvasRef.current.width = canvasRef.current.getBoundingClientRect().width;
+            canvasRef.current.height = canvasRef.current.getBoundingClientRect().height;
+
             const ctx = canvasRef.current.getContext("2d");
             if (currentDevice != null && ctx != null)
             {
                 const sliderScale = zoom * 0.01;
                 ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-                ctx.fillStyle = "#f06";
+                ctx.fillStyle = isMouseDown ? "#f06" : "#60f";
 
                 const width = isFlipped ? currentDevice.height : currentDevice.width;
                 const height = isFlipped ? currentDevice.width : currentDevice.height;
                 ctx.fillRect(viewPos.x, viewPos.y, width*sliderScale, height*sliderScale);
             }
         }
-    }, [viewPos, zoom, currentDevice, isFlipped]);
+    }, [viewPos, zoom, currentDevice, isFlipped, isMouseDown]);
 
-    return (<>
-        <canvas
+    return (
+        <canvas className="mobileCanvas"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
@@ -70,8 +73,6 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom}
             onWheel={() =>{}}
             style={{"backgroundColor": "#eef"}}
             ref={canvasRef}
-            width={900}
-            height={400}
         />
-    </>);
+    );
 }

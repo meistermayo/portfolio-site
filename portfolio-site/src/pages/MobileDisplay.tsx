@@ -3,6 +3,7 @@ import DeviceSelect from "../components/DeviceSelect";
 import { DeviceData } from "../types/DeviceData";
 import SliderNumberInput from "../components/SliderNumberInput";
 import MobileCanvas from "../components/MobileCanvas";
+import "./style/MobileDisplay.css"
 
 export default function MobileDisplay() {
     const [devices, setDevices] = useState<Array<DeviceData>>([]);
@@ -47,37 +48,47 @@ export default function MobileDisplay() {
     }, [hasFetched]);
 
     return (<>
+    <div className="relativeContainer">
         <MobileCanvas canvasRef={canvasRef} isFlipped={isFlipped} currentDevice={currentDevice} zoom={sliderValue}/>
-        <button onClick={() => {setFetched(false);}}>Mark dirty</button>
-        <button onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
-        {
-            currentDevice != null && (
-                <ul>
-                    <li>{currentDevice.name}</li>
-                    <li>{currentDevice.width} px</li>
-                    <li>{currentDevice.height} px</li>
-                    <li>{Math.round(currentDevice.width/currentDevice.height * 100) / 100}</li>
-                    <li>{currentDevice.ppi} ppi</li>
-                </ul>
-            )
-        }
-        <SliderNumberInput>Screen PPI</SliderNumberInput>
-        <SliderNumberInput>Zoom</SliderNumberInput>
-        <input type="range" min="25" max="100" defaultValue="100" onChange={(e) => {setSliderValue(Number(e.target.value));}}/>
-        <DeviceSelect devices={devices} onSelect={onDeviceSelected}/>
-        <select>
-            <option>iPhone</option>
-            <option>iPad</option>
-        </select>
-        <select>
-            <option>Phone</option>
-            <option>Tablet</option>
-            <option>Both</option>
-        </select>
-        <select>
-            <option>iOS</option>
-            <option>Android</option>
-            <option>Both</option>
-        </select>
+        <div className="z1">
+            what
+            <button  onClick={() => {setFetched(false);}}>Mark dirty</button>
+            <button  onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
+            {
+                currentDevice != null && (
+                    <ul>
+                        <li>{currentDevice.name}</li>
+                        <li>{currentDevice.width} px</li>
+                        <li>{currentDevice.height} px</li>
+                        <li>{Math.round(currentDevice.width/currentDevice.height * 100) / 100}</li>
+                        <li>{currentDevice.ppi} ppi</li>
+                    </ul>
+                )
+            }
+            <SliderNumberInput>Screen PPI</SliderNumberInput>
+            <SliderNumberInput>Zoom</SliderNumberInput>
+            <input type="range" min="25" max="100" defaultValue="100" onChange={(e) => {setSliderValue(Number(e.target.value));}}/>
+            <br/>
+            <DeviceSelect devices={devices} onSelect={onDeviceSelected}/>
+            <br/>
+            <select>
+                <option>iPhone</option>
+                <option>iPad</option>
+            </select>
+            <br/>
+            <select >
+                <option>Phone</option>
+                <option>Tablet</option>
+                <option>Both</option>
+            </select>
+            <br/>
+            <select >
+                <option>iOS</option>
+                <option>Android</option>
+                <option>Both</option>
+            </select>
+        </div>
+    </div>
+
     </>);
 }
