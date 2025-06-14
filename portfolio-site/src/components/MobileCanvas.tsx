@@ -14,9 +14,10 @@ interface Props
     currentDevice: DeviceData | undefined;
     zoom: number;
     screenPPI: number;
+    textSize: number;
 }
 
-export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom, screenPPI} : Props) {
+export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom, screenPPI, textSize} : Props) {
     
     const [viewPos, setViewPos] = useState<vec2>({x: 0, y: 0});
     const [mouseClickPos, setMouseClickPos] = useState<vec2>({x: 0, y: 0});
@@ -92,13 +93,13 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
 
                 ctx.fillRect(viewPos.x, viewPos.y, width*ppiScale*zoomPercent, height*ppiScale*zoomPercent);
 
-                ctx.font = `${12*ppiScale*zoomPercent}px serif`;
+                ctx.font = `${textSize*ppiScale*zoomPercent}px serif`;
                 ctx.textBaseline = "top";
                 ctx.fillStyle = "#004";
                 ctx.fillText("AaBbCcDdEe01234 /.,* (12 Pixel Font)", viewPos.x, viewPos.y);
             }
         }
-    }, [viewPos, zoom, currentDevice, isFlipped, isMouseDown, screenPPI]);
+    }, [viewPos, zoom, currentDevice, isFlipped, isMouseDown, screenPPI, textSize]);
 
     return (
         <canvas className="mobileCanvas"
