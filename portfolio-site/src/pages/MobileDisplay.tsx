@@ -6,6 +6,7 @@ import MobileCanvas from "../components/MobileCanvas";
 import "./style/MobileDisplay.css"
 
 export default function MobileDisplay() {
+    const [ppi, setPPI] = useState(93);
     const [devices, setDevices] = useState<Array<DeviceData>>([]);
     const [hasFetched, setFetched] = useState(false);
     const [isFlipped, setFlipped] = useState<boolean>(false);
@@ -32,14 +33,28 @@ export default function MobileDisplay() {
         {
             console.log("fetched!");
             setFetched(true);
-            async function getTablets() {
+            async function getTablets(): Promise<DeviceData[]> {
                 const response = await fetch("https://web-scraper-py.onrender.com/tablets");
                 const json = await response.json();
 
-                setDevices(json.tablets);
+                return json.tablets;
             }
 
-            getTablets();
+            async function getPhones(): Promise<DeviceData[]> {
+                const response = await fetch("https://web-scraper-py.onrender.com/phones");
+                const json = await response.json();
+
+                return json.phones;
+            }
+
+            async function fetchAll(): Promise<void> {
+                const phones = await getPhones();
+                const tablets = await getTablets();
+
+                setDevices(phones.concat(tablets));
+            }
+
+            fetchAll();
         }
         else
         {
@@ -65,8 +80,7 @@ export default function MobileDisplay() {
                         </ul>
                     )
                 }
-                <SliderNumberInput>Screen PPI</SliderNumberInput>
-                <SliderNumberInput>Zoom</SliderNumberInput>
+                <SliderNumberInput onValueChanged={(v) => setPPI(v.valueOf())}>Screen PPI</SliderNumberInput>
             </div>
             <input type="range" min="25" max="200" defaultValue="100" onChange={(e) => {setSliderValue(Number(e.target.value));}}/>
             <button onClick={() => {setSliderValue(100)}}>Reset Zoom</button>

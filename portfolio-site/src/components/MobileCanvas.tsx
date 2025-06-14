@@ -60,7 +60,6 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom}
                 
                 for (let x=viewPos.x % cell_size; x<canvasRef.current.width; x += cell_size)
                 {
-                    console.log("foo");
                     ctx.strokeStyle = "#aaf";
                     ctx.beginPath();
                     ctx.moveTo(x, -cell_size);
@@ -70,7 +69,6 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom}
                 
                 for (let y=viewPos.y % cell_size; y<canvasRef.current.height; y += cell_size)
                 {
-                    console.log("foo");
                     ctx.strokeStyle = "#aaf";
                     ctx.beginPath();
                     ctx.moveTo(-cell_size, y);
