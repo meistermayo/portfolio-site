@@ -67,6 +67,11 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
                     ctx.moveTo(x, -cell_size);
                     ctx.lineTo(x, canvasRef.current.height + cell_size);
                     ctx.stroke();
+                    
+                    ctx.font = `16px serif`;
+                    ctx.textBaseline = "bottom";
+                    ctx.fillStyle = "#aaf";
+                    ctx.fillText(`${Math.round((x - viewPos.x)/cell_size)}.0"`, x + 4, canvasRef.current.height);
                 }
                 
                 for (let y=viewPos.y % cell_size; y<canvasRef.current.height; y += cell_size)
