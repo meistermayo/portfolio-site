@@ -51,22 +51,23 @@ export default function MobileDisplay() {
     <div className="relativeContainer">
         <MobileCanvas canvasRef={canvasRef} isFlipped={isFlipped} currentDevice={currentDevice} zoom={sliderValue}/>
         <div className="z1">
-            what
-            <button  onClick={() => {setFetched(false);}}>Mark dirty</button>
-            <button  onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
-            {
-                currentDevice != null && (
-                    <ul>
-                        <li>{currentDevice.name}</li>
-                        <li>{currentDevice.width} px</li>
-                        <li>{currentDevice.height} px</li>
-                        <li>{Math.round(currentDevice.width/currentDevice.height * 100) / 100}</li>
-                        <li>{currentDevice.ppi} ppi</li>
-                    </ul>
-                )
-            }
-            <SliderNumberInput>Screen PPI</SliderNumberInput>
-            <SliderNumberInput>Zoom</SliderNumberInput>
+            <button onClick={() => {setFetched(false);}}>Mark dirty</button>
+            <button onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
+            <div className="darkText">
+                {
+                    currentDevice != null && (
+                        <ul>
+                            <li>{currentDevice.name}</li>
+                            <li>{currentDevice.width} px</li>
+                            <li>{currentDevice.height} px</li>
+                            <li>{Math.round(currentDevice.width/currentDevice.height * 100) / 100}</li>
+                            <li>{currentDevice.ppi} ppi</li>
+                        </ul>
+                    )
+                }
+                <SliderNumberInput>Screen PPI</SliderNumberInput>
+                <SliderNumberInput>Zoom</SliderNumberInput>
+            </div>
             <input type="range" min="25" max="100" defaultValue="100" onChange={(e) => {setSliderValue(Number(e.target.value));}}/>
             <br/>
             <DeviceSelect devices={devices} onSelect={onDeviceSelected}/>
