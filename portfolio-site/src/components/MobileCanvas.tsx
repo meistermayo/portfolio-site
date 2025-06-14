@@ -13,9 +13,10 @@ interface Props
     isFlipped: boolean;
     currentDevice: DeviceData | undefined;
     zoom: number;
+    screenPPI: number;
 }
 
-export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom} : Props) {
+export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom, screenPPI} : Props) {
     
     const [viewPos, setViewPos] = useState<vec2>({x: 0, y: 0});
     const [mouseClickPos, setMouseClickPos] = useState<vec2>({x: 0, y: 0});
@@ -51,12 +52,13 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom}
             canvasRef.current.height = canvasRef.current.getBoundingClientRect().height;
 
             const ctx = canvasRef.current.getContext("2d");
-            if (currentDevice != null && ctx != null)
+            if (currentDevice != null && screenPPI != 0 && ctx != null)
             {
                 const zoomPercent = zoom * 0.01;
+
                 ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
 
-                const cell_size = 100.0 * zoomPercent;
+                const cell_size = Math.max(screenPPI * zoomPercent, 1.0);
                 
                 for (let x=viewPos.x % cell_size; x<canvasRef.current.width; x += cell_size)
                 {
@@ -80,15 +82,18 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom}
 
                 const width = isFlipped ? currentDevice.height : currentDevice.width;
                 const height = isFlipped ? currentDevice.width : currentDevice.height;
-                ctx.fillRect(viewPos.x, viewPos.y, width*zoomPercent, height*zoomPercent);
 
-                ctx.font = `${12*zoomPercent}px serif`;
+                const ppiScale = 1.0 / currentDevice.ppi * (screenPPI);
+
+                ctx.fillRect(viewPos.x, viewPos.y, width*ppiScale*zoomPercent, height*ppiScale*zoomPercent);
+
+                ctx.font = `${12*ppiScale*zoomPercent}px serif`;
                 ctx.textBaseline = "top";
                 ctx.fillStyle = "#004";
-                ctx.fillText("Hello world", viewPos.x, viewPos.y);
+                ctx.fillText("AaBbCcDdEe01234 /.,* (12 Pixel Font)", viewPos.x, viewPos.y);
             }
         }
-    }, [viewPos, zoom, currentDevice, isFlipped, isMouseDown]);
+    }, [viewPos, zoom, currentDevice, isFlipped, isMouseDown, screenPPI]);
 
     return (
         <canvas className="mobileCanvas"
