@@ -53,10 +53,10 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom}
             const ctx = canvasRef.current.getContext("2d");
             if (currentDevice != null && ctx != null)
             {
-                const sliderScale = zoom * 0.01;
+                const zoomPercent = zoom * 0.01;
                 ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
 
-                const cell_size = 100.0 * sliderScale;
+                const cell_size = 100.0 * zoomPercent;
                 
                 for (let x=viewPos.x % cell_size; x<canvasRef.current.width; x += cell_size)
                 {
@@ -82,8 +82,12 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom}
 
                 const width = isFlipped ? currentDevice.height : currentDevice.width;
                 const height = isFlipped ? currentDevice.width : currentDevice.height;
-                ctx.fillRect(viewPos.x, viewPos.y, width*sliderScale, height*sliderScale);
+                ctx.fillRect(viewPos.x, viewPos.y, width*zoomPercent, height*zoomPercent);
 
+                ctx.font = `${12*zoomPercent}px serif`;
+                ctx.textBaseline = "top";
+                ctx.fillStyle = "#004";
+                ctx.fillText("Hello world", viewPos.x, viewPos.y);
             }
         }
     }, [viewPos, zoom, currentDevice, isFlipped, isMouseDown]);

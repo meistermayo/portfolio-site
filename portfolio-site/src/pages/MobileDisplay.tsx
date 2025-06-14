@@ -68,7 +68,9 @@ export default function MobileDisplay() {
                 <SliderNumberInput>Screen PPI</SliderNumberInput>
                 <SliderNumberInput>Zoom</SliderNumberInput>
             </div>
-            <input type="range" min="25" max="100" defaultValue="100" onChange={(e) => {setSliderValue(Number(e.target.value));}}/>
+            <input type="range" min="25" max="200" defaultValue="100" onChange={(e) => {setSliderValue(Number(e.target.value));}}/>
+            <button onClick={() => {setSliderValue(100)}}>Reset Zoom</button>
+            <div className="darkText">Zoom: {sliderValue}%</div>
             <br/>
             <DeviceSelect devices={devices} onSelect={onDeviceSelected}/>
             <br/>
