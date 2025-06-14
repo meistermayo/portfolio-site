@@ -11,7 +11,7 @@ export default function MobileDisplay() {
     const [hasFetched, setFetched] = useState(false);
     const [isFlipped, setFlipped] = useState<boolean>(false);
     const [currentDevice, setCurrentDevice] = useState<DeviceData>();
-    const [sliderValue, setSliderValue] = useState(100);
+    const [zoom, setZoom] = useState(100);
     const [textSize, setTextSize] = useState(12);
 
     const canvasRef: MutableRefObject<HTMLCanvasElement | null> = useRef(null);
@@ -65,7 +65,7 @@ export default function MobileDisplay() {
 
     return (<>
     <div className="relativeContainer">
-        <MobileCanvas canvasRef={canvasRef} isFlipped={isFlipped} currentDevice={currentDevice} zoom={sliderValue} screenPPI={ppi} textSize={textSize}/>
+        <MobileCanvas canvasRef={canvasRef} isFlipped={isFlipped} currentDevice={currentDevice} zoom={zoom} screenPPI={ppi} textSize={textSize}/>
         <div className="z1">
             <button onClick={() => {setFetched(false);}}>Mark dirty</button>
             <button onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
@@ -81,13 +81,16 @@ export default function MobileDisplay() {
                         </ul>
                     )
                 }
-                <SliderNumberInput onValueChanged={(v) => setPPI(v.valueOf())}>Screen PPI</SliderNumberInput>
+                <SliderNumberInput min={10} max={4000} resetValue={93} onValueChanged={(v) => setPPI(v.valueOf())}>Screen PPI<br/></SliderNumberInput>
             </div>
-            <div className="darkText">Zoom: {sliderValue}%</div>
-            <input type="range" min="25" max="200" defaultValue="100" onChange={(e) => {setSliderValue(Number(e.target.value));}}/>
-            <button onClick={() => {setSliderValue(100)}}>Reset Zoom</button>
-            <div className="darkText">Text-Size: {textSize}px</div>
-            <input type="range" min="12" max="96" defaultValue="12" onChange={(e) => {setTextSize(Number(e.target.value));}}/>
+            
+            <SliderNumberInput min={25} max={200} resetValue={100} onValueChanged={(v) => setZoom(v.valueOf())}>
+                <div className="darkText">Zoom: {zoom}%</div>
+            </SliderNumberInput>
+            <SliderNumberInput min={10} max={96} resetValue={12} onValueChanged={(v) => setTextSize(v.valueOf())}>
+                <div className="darkText">Text-Size: {textSize}px</div>
+            </SliderNumberInput>
+
             <br/>
             <DeviceSelect devices={devices} onSelect={onDeviceSelected}/>
             <br/>
