@@ -24,10 +24,13 @@ export default function SliderNumberInput({onValueChanged, min, max, resetValue,
     }
 
     return (<>
-        {children}
-        <input ref={inputTextRef} onChange={_onValueChanged} type="number" min={min} max={max} value={value}/>
-        <input onChange={_onValueChanged} type="range" min={min} max={max} value={value}/>
-        <br/>
+        <div style={value==resetValue ? {color: ""} : {color:"#00f", fontWeight:"bold"}}>
+            {children}{value==resetValue ? "" : "*"}
+        </div>
+        <div style={{display: "flex"}}>
+            <input style={{width:48}} ref={inputTextRef} onChange={_onValueChanged} type="number" min={min} max={max} value={value}/>
+            <input onChange={_onValueChanged} type="range" min={min} max={max} value={value}/>
+        </div>
         <button onClick={onReset}>Reset</button>
         <br/>
     </>);

@@ -69,7 +69,7 @@ export default function MobileDisplay() {
         <div className="z1">
             <button onClick={() => {setFetched(false);}}>Mark dirty</button>
             <button onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
-            <div className="darkText panel">
+            <div className="panel">
                 {
                     currentDevice != null && (
                         <ul>
@@ -81,14 +81,14 @@ export default function MobileDisplay() {
                         </ul>
                     )
                 }
-                <SliderNumberInput min={10} max={4000} resetValue={93} onValueChanged={(v) => setPPI(v.valueOf())}>Screen PPI<br/></SliderNumberInput>
+                <SliderNumberInput min={10} max={4000} resetValue={93} onValueChanged={(v) => setPPI(v.valueOf())}>Screen PPI</SliderNumberInput>
             </div>
             
             <SliderNumberInput min={25} max={200} resetValue={100} onValueChanged={(v) => setZoom(v.valueOf())}>
-                <div className="darkText">Zoom: {zoom}%</div>
+                Zoom: {zoom}%
             </SliderNumberInput>
             <SliderNumberInput min={10} max={96} resetValue={12} onValueChanged={(v) => setTextSize(v.valueOf())}>
-                <div className="darkText">Text-Size: {textSize}px</div>
+                Text-Size: {textSize}px
             </SliderNumberInput>
 
             <br/>

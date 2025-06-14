@@ -1,5 +1,7 @@
+
 .relativeContainer
 {
+    color: #0e192b;
     position: relative;
     width: 100%;
     height: 75vh;
@@ -16,10 +18,6 @@
 
 .z1_ui {
     pointer-events: auto;
-}
-
-.darkText {
-    color: #0e192b;
 }
 
 .panel {
