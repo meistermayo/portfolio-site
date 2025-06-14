@@ -55,11 +55,35 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom}
             {
                 const sliderScale = zoom * 0.01;
                 ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-                ctx.fillStyle = isMouseDown ? "#f06" : "#60f";
+
+                const cell_size = 100.0 * sliderScale;
+                
+                for (let x=viewPos.x % cell_size; x<canvasRef.current.width; x += cell_size)
+                {
+                    console.log("foo");
+                    ctx.strokeStyle = "#aaf";
+                    ctx.beginPath();
+                    ctx.moveTo(x, -cell_size);
+                    ctx.lineTo(x, canvasRef.current.height + cell_size);
+                    ctx.stroke();
+                }
+                
+                for (let y=viewPos.y % cell_size; y<canvasRef.current.height; y += cell_size)
+                {
+                    console.log("foo");
+                    ctx.strokeStyle = "#aaf";
+                    ctx.beginPath();
+                    ctx.moveTo(-cell_size, y);
+                    ctx.lineTo(canvasRef.current.width + cell_size, y);
+                    ctx.stroke();
+                }
+
+                ctx.fillStyle = isMouseDown ? "#f39" : "#f06";
 
                 const width = isFlipped ? currentDevice.height : currentDevice.width;
                 const height = isFlipped ? currentDevice.width : currentDevice.height;
                 ctx.fillRect(viewPos.x, viewPos.y, width*sliderScale, height*sliderScale);
+
             }
         }
     }, [viewPos, zoom, currentDevice, isFlipped, isMouseDown]);
