@@ -53,7 +53,7 @@ export default function MobileDisplay() {
         <div className="z1">
             <button onClick={() => {setFetched(false);}}>Mark dirty</button>
             <button onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
-            <div className="darkText">
+            <div className="darkText panel">
                 {
                     currentDevice != null && (
                         <ul>

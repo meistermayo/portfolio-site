@@ -1,5 +1,6 @@
 .mobileCanvas
 {
+    border-radius: 12px;
     position: absolute;
     left: 0;
     right: 0;
