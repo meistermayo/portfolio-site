@@ -111,6 +111,7 @@ export default function MobileDisplay() {
                         </>
                     )
                 }
+                <br/>
                 <SliderNumberInput min={10} max={4000} resetValue={93} onValueChanged={(v) => setPPI(v.valueOf())}>Screen PPI</SliderNumberInput>
             
             <SliderNumberInput min={25} max={200} resetValue={100} onValueChanged={(v) => setZoom(v.valueOf())}>
