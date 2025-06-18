@@ -10,7 +10,7 @@ interface Props {
 
 export default function SliderNumberInput({onValueChanged, min, max, resetValue, children}: Props) {
     const inputTextRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(resetValue);
 
     const _onValueChanged = (e: React.ChangeEvent<HTMLInputElement>) =>
     {
