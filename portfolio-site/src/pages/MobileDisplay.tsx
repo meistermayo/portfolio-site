@@ -95,9 +95,9 @@ export default function MobileDisplay() {
     <div className="relativeContainer">
         <MobileCanvas canvasRef={canvasRef} isFlipped={isFlipped} currentDevice={currentDevice} zoom={zoom} screenPPI={ppi} textSize={textSize}/>
         <div className="z1">
+            <div className="panel">
             <button onClick={() => {setFetched(false);}}>Mark dirty</button>
             <button onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
-            <div className="panel">
                 {
                     currentDevice != null && (
                         <ul>
@@ -110,7 +110,6 @@ export default function MobileDisplay() {
                     )
                 }
                 <SliderNumberInput min={10} max={4000} resetValue={93} onValueChanged={(v) => setPPI(v.valueOf())}>Screen PPI</SliderNumberInput>
-            </div>
             
             <SliderNumberInput min={25} max={200} resetValue={100} onValueChanged={(v) => setZoom(v.valueOf())}>
                 Zoom: {zoom}%
@@ -134,6 +133,7 @@ export default function MobileDisplay() {
                     <option value="android">Android</option>
                     <option value="both">Both</option>
                 </select>
+            </div>
             </div>
         </div>
     </div>

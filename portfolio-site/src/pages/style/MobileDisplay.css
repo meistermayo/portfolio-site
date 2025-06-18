@@ -21,10 +21,12 @@
 }
 
 .panel {
+    position: absolute;
     background-color: rgb(134, 165, 224);
     border-radius: 12px;
     border: solid 2px;
     border-color: #0e192b;
     padding: 16px;
-    width: 200px;
+    margin: 16px;
+    width: 216px;
 }
