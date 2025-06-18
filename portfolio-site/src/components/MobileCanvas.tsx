@@ -19,7 +19,7 @@ interface Props
 
 export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom, screenPPI, textSize} : Props) {
     
-    const [viewPos, setViewPos] = useState<vec2>({x: 0, y: 0});
+    const [viewPos, setViewPos] = useState<vec2>({x: 400, y: 200});
     const [mouseClickPos, setMouseClickPos] = useState<vec2>({x: 0, y: 0});
     const [isMouseDown, setIsMouseDown] = useState<boolean>(false);
 
