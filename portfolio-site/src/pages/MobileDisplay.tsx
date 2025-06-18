@@ -97,7 +97,7 @@ export default function MobileDisplay() {
         <MobileCanvas canvasRef={canvasRef} isFlipped={isFlipped} currentDevice={currentDevice} zoom={zoom} screenPPI={ppi} textSize={textSize}/>
         <div className="z1">
             <div className="panel">
-            <button onClick={() => {setFetched(false);}}>Mark dirty</button>
+            <button onClick={() => {setFetched(false);}}>Fetch Device Data</button>
             <button onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
                 {
                     currentDevice != null && (
