@@ -7,6 +7,7 @@ import "./style/MobileDisplay.css"
 
 export default function MobileDisplay() {
     const [ppi, setPPI] = useState(93);
+    const [useCustom, setUseCustom] = useState(false);
     const [devices, setDevices] = useState<Array<DeviceData>>([]);
     const [displayDevices, setDisplayDevices] = useState<Array<DeviceData>>([]);
     const [filterOS, setFilterOS] = useState<string>("both");
@@ -27,7 +28,7 @@ export default function MobileDisplay() {
 
         if (device != null)
         {
-            setCurrentDevice(device);
+            setCurrentDevice({...device});
         }
         console.log((device == null) ? "null" : device.name);
     }
@@ -100,13 +101,14 @@ export default function MobileDisplay() {
             <button onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
                 {
                     currentDevice != null && (
-                        <ul>
-                            <li>{currentDevice.name}</li>
-                            <li>{currentDevice.width} px</li>
-                            <li>{currentDevice.height} px</li>
-                            <li>{Math.round(currentDevice.width/currentDevice.height * 100) / 100}</li>
-                            <li>{currentDevice.ppi} ppi</li>
-                        </ul>
+                        <>
+                                <div>Use Custom: <input type={"checkbox"} checked={useCustom} onChange={(e) => {setUseCustom(e.target.checked);}}/></div>
+                                <div>Name: <input type="text" disabled={true} value={currentDevice.name} /></div>
+                                <div>Width: <input type="text" disabled={!useCustom} value={currentDevice.width} onChange={(e) => setCurrentDevice({...currentDevice, width: Number(e.target.value)})}/> px</div>
+                                <div>Height: <input type="text" disabled={!useCustom} value={currentDevice.height} onChange={(e) => setCurrentDevice({...currentDevice, height: Number(e.target.value)})}/> px</div>
+                                <div>PPI: <br/><input type="text" disabled={!useCustom} value={currentDevice.ppi} onChange={(e) => setCurrentDevice({...currentDevice, ppi: Number(e.target.value)})}/></div>
+                                <div>Aspect Ratio: <input type="text" disabled={true} value={Math.round(currentDevice.width/currentDevice.height * 100) / 100} /></div>
+                        </>
                     )
                 }
                 <SliderNumberInput min={10} max={4000} resetValue={93} onValueChanged={(v) => setPPI(v.valueOf())}>Screen PPI</SliderNumberInput>
