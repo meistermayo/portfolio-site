@@ -1,4 +1,4 @@
-import { MutableRefObject, ReactEventHandler, useEffect, useState } from "react";
+import { MutableRefObject, useEffect, useState } from "react";
 import { DeviceData } from "../types/DeviceData";
 import "./style/MobileCanvas.css"
 
@@ -75,6 +75,7 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
 
                     const cell_size = Math.max(screenPPI * zoomPercent, 1.0);
                     
+                    // lines ====================================================================
                     const maxInch = 11.0;
                     for (let x=viewPos.x % cell_size; x<canvasRef.current.width; x += cell_size)
                     {
@@ -86,12 +87,7 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
                         ctx.lineTo(x, canvasRef.current.height + cell_size);
                         ctx.stroke();
                         
-                        ctx.font = `16px serif`;
-                        ctx.textBaseline = "bottom";
-                        ctx.fillStyle = "#aaf";
-                        ctx.fillText(`${inch}.0"`, x + 4, canvasRef.current.height);
                     }
-                    
                     for (let y=viewPos.y % cell_size; y<canvasRef.current.height; y += cell_size)
                     {
                         const inch = Math.round((y - viewPos.y)/cell_size);
@@ -102,6 +98,27 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
                         ctx.stroke();
                     }
 
+                    // gradient fadeout ===========================================================================
+                    const gradient = ctx.createRadialGradient(viewPos.x, viewPos.y, 0, viewPos.x, viewPos.y, 1200);
+
+                    gradient.addColorStop(0, 'rgba(226, 231, 236, 0)');
+                    gradient.addColorStop(0.7, 'rgba(226, 231, 236, 0)');
+                    gradient.addColorStop(1, 'rgb(226, 231, 236)');
+
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0,  canvasRef.current.width,  canvasRef.current.height);
+
+                    // inch markers ==========================================================================
+                    for (let x=viewPos.x % cell_size; x<canvasRef.current.width; x += cell_size)
+                    {
+                        const inch = Math.round((x - viewPos.x)/cell_size);
+                        ctx.font = `16px serif`;
+                        ctx.textBaseline = "bottom";
+                        ctx.fillStyle = "#aaf";
+                        ctx.fillText(`${inch}.0"`, x + 4, canvasRef.current.height);
+                    }
+                    
+                    // device ====================================================================================
                     if (currentDevice != null)
                     {
                         ctx.fillStyle = isMouseDown ? "#f39" : "#f06";
