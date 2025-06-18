@@ -21,7 +21,8 @@ export default function MobileDisplay() {
     const canvasRef: MutableRefObject<HTMLCanvasElement | null> = useRef(null);
 
     function onDeviceSelected(e: React.ChangeEvent<HTMLSelectElement>) {
-        console.log(e.target.value);
+        setUseCustom(false);
+
         const device = devices.find((d) => 
             d.id == Number(e.target.value)
         );
