@@ -8,6 +8,9 @@ import "./style/MobileDisplay.css"
 export default function MobileDisplay() {
     const [ppi, setPPI] = useState(93);
     const [devices, setDevices] = useState<Array<DeviceData>>([]);
+    const [displayDevices, setDisplayDevices] = useState<Array<DeviceData>>([]);
+    const [filterOS, setFilterOS] = useState<string>("both");
+    const [filterDeviceType, setFilterDeviceType] = useState<string>("both");
     const [hasFetched, setFetched] = useState(false);
     const [isFlipped, setFlipped] = useState<boolean>(false);
     const [currentDevice, setCurrentDevice] = useState<DeviceData>();
@@ -28,6 +31,28 @@ export default function MobileDisplay() {
         }
         console.log((device == null) ? "null" : device.name);
     }
+
+    function filterDevices(inFilterOS: string, inFilterDeviceType: string)
+    {
+        return setDisplayDevices(
+            devices.filter(
+                (d) => {console.log(`${filterOS} ${filterDeviceType} ${d.os.toLowerCase()} ${d.type.toLowerCase()}`)
+                    return (inFilterOS == "both" || d.os.toLowerCase() == inFilterOS) && 
+                    (inFilterDeviceType == "both" || d.type.toLowerCase() == inFilterDeviceType);}
+            )
+        );
+    }
+
+    function onDeviceFilter(e: React.ChangeEvent<HTMLSelectElement>) {
+        setFilterDeviceType(e.target.value);
+        filterDevices(filterOS, e.target.value);
+    }
+
+    function onOSFilter(e: React.ChangeEvent<HTMLSelectElement>) {
+        setFilterOS(e.target.value);
+        filterDevices(e.target.value, filterDeviceType);
+    }
+    
 
     useEffect(() => {
         if (!hasFetched)
@@ -53,6 +78,7 @@ export default function MobileDisplay() {
                 const tablets = await getTablets();
 
                 setDevices(phones.concat(tablets));
+                filterDevices(filterOS, filterDeviceType);
             }
 
             fetchAll();
@@ -92,24 +118,21 @@ export default function MobileDisplay() {
             </SliderNumberInput>
 
             <br/>
-            <DeviceSelect devices={devices} onSelect={onDeviceSelected}/>
+            <DeviceSelect devices={displayDevices} onSelect={onDeviceSelected}/>
             <br/>
-            <select>
-                <option>iPhone</option>
-                <option>iPad</option>
-            </select>
-            <br/>
-            <select >
-                <option>Phone</option>
-                <option>Tablet</option>
-                <option>Both</option>
-            </select>
-            <br/>
-            <select >
-                <option>iOS</option>
-                <option>Android</option>
-                <option>Both</option>
-            </select>
+            <div style={{display: "flex"}}>
+                <select value={filterDeviceType} onChange={onDeviceFilter}>
+                    <option value="phone">Phone</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="both">Both</option>
+                </select>
+                <br/>
+                <select value={filterOS} onChange={onOSFilter}>
+                    <option value="ios">iOS</option>
+                    <option value="android">Android</option>
+                    <option value="both">Both</option>
+                </select>
+            </div>
         </div>
     </div>
 
