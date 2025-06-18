@@ -79,6 +79,8 @@ export default function MobileDisplay() {
 
                 setDevices(phones.concat(tablets));
                 filterDevices(filterOS, filterDeviceType);
+
+                setCurrentDevice(devices[0]);
             }
 
             fetchAll();
