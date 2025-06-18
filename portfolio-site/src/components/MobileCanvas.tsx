@@ -39,8 +39,11 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
             const deltaX = e.nativeEvent.offsetX - mouseClickPos.x;
             const deltaY = e.nativeEvent.offsetY - mouseClickPos.y;
 
-            const clampX = clamp(viewPos.x + deltaX, 0, canvasRef.current?.width || 0);
-            const clampY = clamp(viewPos.y + deltaY, 0, canvasRef.current?.height || 0);
+            const width = (canvasRef.current?.width || 0);
+            const height = (canvasRef.current?.height || 0);
+
+            const clampX = clamp(viewPos.x + deltaX, -width * 0.1, width * 1.1);
+            const clampY = clamp(viewPos.y + deltaY, -height * 0.1, height * 1.1);
 
             setViewPos({x: clampX, y: clampY});
             setMouseClickPos({x: e.nativeEvent.offsetX, y:e. nativeEvent.offsetY});
@@ -72,9 +75,12 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
 
                     const cell_size = Math.max(screenPPI * zoomPercent, 1.0);
                     
+                    const maxInch = 11.0;
                     for (let x=viewPos.x % cell_size; x<canvasRef.current.width; x += cell_size)
                     {
-                        ctx.strokeStyle = "#aaf";
+                        const inch = Math.round((x - viewPos.x)/cell_size);
+
+                        ctx.strokeStyle = `rgba(170, 170, 225, ${1.0 - Math.abs(inch/maxInch)*1.0})`;
                         ctx.beginPath();
                         ctx.moveTo(x, -cell_size);
                         ctx.lineTo(x, canvasRef.current.height + cell_size);
@@ -83,12 +89,13 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
                         ctx.font = `16px serif`;
                         ctx.textBaseline = "bottom";
                         ctx.fillStyle = "#aaf";
-                        ctx.fillText(`${Math.round((x - viewPos.x)/cell_size)}.0"`, x + 4, canvasRef.current.height);
+                        ctx.fillText(`${inch}.0"`, x + 4, canvasRef.current.height);
                     }
                     
                     for (let y=viewPos.y % cell_size; y<canvasRef.current.height; y += cell_size)
                     {
-                        ctx.strokeStyle = "#aaf";
+                        const inch = Math.round((y - viewPos.y)/cell_size);
+                        ctx.strokeStyle = `rgba(170, 170, 225, ${1.0 - Math.abs(inch/maxInch)})`;
                         ctx.beginPath();
                         ctx.moveTo(-cell_size, y);
                         ctx.lineTo(canvasRef.current.width + cell_size, y);
