@@ -59,7 +59,6 @@ export default function MobileDisplay() {
     useEffect(() => {
         if (!hasFetched)
         {
-            console.log("fetched!");
             setFetched(true);
             async function getTablets(): Promise<DeviceData[]> {
                 const response = await fetch("https://web-scraper-py.onrender.com/tablets");
@@ -78,6 +77,18 @@ export default function MobileDisplay() {
             async function fetchAll(): Promise<void> {
                 const phones = await getPhones();
                 const tablets = await getTablets();
+
+                const devices = phones.concat(tablets);
+
+                // enforce portrait v landscape
+                devices.forEach((d) => {
+                    if (d.width < d.height)
+                    {
+                        const tmp = d.width;
+                        d.width = d.height;
+                        d.height = tmp;
+                    }
+                });
 
                 setDevices(phones.concat(tablets));
                 filterDevices(filterOS, filterDeviceType);
