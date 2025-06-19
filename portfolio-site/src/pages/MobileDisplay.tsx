@@ -55,7 +55,6 @@ export default function MobileDisplay() {
         filterDevices(e.target.value, filterDeviceType);
     }
     
-
     useEffect(() => {
         if (!hasFetched)
         {
