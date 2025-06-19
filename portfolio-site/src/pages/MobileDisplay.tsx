@@ -8,12 +8,12 @@ import "./style/MobileDisplay.css"
 export default function MobileDisplay() {
     const [ppi, setPPI] = useState(93);
     const [useCustom, setUseCustom] = useState(false);
+    const [hasFetched, setFetched] = useState(false);
     const [isFetching, setIsFetching] = useState(false);
-    const [devices, setDevices] = useState<Array<DeviceData>>([]);
-    const [displayDevices, setDisplayDevices] = useState<Array<DeviceData>>([]);
+    const [devices, setDevices] = useState<DeviceData[]>([]);
+    const [displayDevices, setDisplayDevices] = useState<DeviceData[]>([]);
     const [filterOS, setFilterOS] = useState<string>("both");
     const [filterDeviceType, setFilterDeviceType] = useState<string>("both");
-    const [hasFetched, setFetched] = useState(false);
     const [isFlipped, setFlipped] = useState<boolean>(false);
     const [currentDevice, setCurrentDevice] = useState<DeviceData>();
     const [zoom, setZoom] = useState(100);
@@ -32,31 +32,31 @@ export default function MobileDisplay() {
         {
             setCurrentDevice({...device});
         }
-        console.log((device == null) ? "null" : device.name);
     }
 
-    function filterDevices(inFilterOS: string, inFilterDeviceType: string)
+    function filterDevices(devices: DeviceData[], inFilterOS: string, inFilterDeviceType: string)
     {
         return setDisplayDevices(
             devices.filter(
-                (d) => {console.log(`${filterOS} ${filterDeviceType} ${d.os.toLowerCase()} ${d.type.toLowerCase()}`)
-                    return (inFilterOS == "both" || d.os.toLowerCase() == inFilterOS) && 
-                    (inFilterDeviceType == "both" || d.type.toLowerCase() == inFilterDeviceType);}
+                (d) =>
+                    (inFilterOS == "both" || d.os.toLowerCase() == inFilterOS) && 
+                    (inFilterDeviceType == "both" || d.type.toLowerCase() == inFilterDeviceType)
             )
         );
     }
 
     function onDeviceFilter(e: React.ChangeEvent<HTMLSelectElement>) {
         setFilterDeviceType(e.target.value);
-        filterDevices(filterOS, e.target.value);
+        filterDevices(devices, filterOS, e.target.value);
     }
 
     function onOSFilter(e: React.ChangeEvent<HTMLSelectElement>) {
         setFilterOS(e.target.value);
-        filterDevices(e.target.value, filterDeviceType);
+        filterDevices(devices, e.target.value, filterDeviceType);
     }
     
-    useEffect(() => {
+    function fetchDevices()
+    {
         if (!hasFetched)
         {
             setFetched(true);
@@ -92,9 +92,8 @@ export default function MobileDisplay() {
                     }
                 });
 
-                setDevices(phones.concat(tablets));
-                filterDevices(filterOS, filterDeviceType);
-
+                setDevices(devices);
+                filterDevices(devices, filterOS, filterDeviceType);
                 setCurrentDevice(devices[0]);
             }
 
@@ -104,6 +103,10 @@ export default function MobileDisplay() {
         {
             console.log("can't fetch!");
         }
+    }
+
+    useEffect(() => {
+        fetchDevices();
     }, [hasFetched]);
 
     return (<>
