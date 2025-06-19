@@ -8,6 +8,7 @@ import "./style/MobileDisplay.css"
 export default function MobileDisplay() {
     const [ppi, setPPI] = useState(93);
     const [useCustom, setUseCustom] = useState(false);
+    const [isFetching, setIsFetching] = useState(false);
     const [devices, setDevices] = useState<Array<DeviceData>>([]);
     const [displayDevices, setDisplayDevices] = useState<Array<DeviceData>>([]);
     const [filterOS, setFilterOS] = useState<string>("both");
@@ -74,8 +75,10 @@ export default function MobileDisplay() {
             }
 
             async function fetchAll(): Promise<void> {
+                setIsFetching(true);
                 const phones = await getPhones();
                 const tablets = await getTablets();
+                setIsFetching(false);
 
                 const devices = phones.concat(tablets);
 
@@ -105,7 +108,7 @@ export default function MobileDisplay() {
 
     return (<>
     <div className="relativeContainer">
-        <MobileCanvas canvasRef={canvasRef} isFlipped={isFlipped} currentDevice={currentDevice} zoom={zoom} screenPPI={ppi} textSize={textSize}/>
+        <MobileCanvas canvasRef={canvasRef} isFlipped={isFlipped} currentDevice={currentDevice} zoom={zoom} screenPPI={ppi} textSize={textSize} isFetching={isFetching}/>
         <div className="z1">
             <div className="panel">
             <button onClick={() => {setFetched(false);}}>Fetch Device Data</button>

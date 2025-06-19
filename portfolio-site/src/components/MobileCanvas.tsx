@@ -15,9 +15,10 @@ interface Props
     zoom: number;
     screenPPI: number;
     textSize: number;
+    isFetching: boolean;
 }
 
-export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom, screenPPI, textSize} : Props) {
+export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom, screenPPI, textSize, isFetching} : Props) {
     
     const [viewPos, setViewPos] = useState<vec2>({x: 400, y: 200});
     const [mouseClickPos, setMouseClickPos] = useState<vec2>({x: 0, y: 0});
@@ -67,7 +68,30 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
             const ctx = canvasRef.current.getContext("2d");
             if (ctx != null)
             {
-                if (screenPPI != 0)
+                if (isFetching)
+                {
+                    const centerX = canvasRef.current.width/2;
+                    const centerY = canvasRef.current.height/2;
+
+                    ctx.font = `16px serif`;
+                    ctx.textBaseline = "bottom";
+                    ctx.textAlign = "center";
+                    ctx.fillStyle = "#558";
+                    ctx.fillText("Retrieving Device Data\n...", centerX, centerY);
+
+                    const conicGradient = ctx.createConicGradient(0.0, centerX, centerY)
+
+                    conicGradient.addColorStop(.25, 'rgba(0, 115, 230, 0)');
+                    conicGradient.addColorStop(.9, 'rgb(20, 184, 116)');
+                    conicGradient.addColorStop(1, 'rgba(0, 255, 42, 0)');
+
+                    ctx.strokeStyle = conicGradient;
+                    ctx.beginPath();
+                    ctx.lineWidth = 10.0;
+                    ctx.arc(centerX, centerY, 100.0, 0.0, 270.0);
+                    ctx.stroke();
+                }
+                else if (screenPPI != 0)
                 {
                     const zoomPercent = zoom * 0.01;
 
@@ -138,7 +162,7 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
                 }
             }
         }
-    }, [viewPos, zoom, currentDevice, isFlipped, isMouseDown, screenPPI, textSize]);
+    }, [viewPos, zoom, currentDevice, isFlipped, isMouseDown, screenPPI, textSize, isFetching]);
 
     return (
         <canvas className="mobileCanvas"
