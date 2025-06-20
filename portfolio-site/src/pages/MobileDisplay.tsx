@@ -52,13 +52,21 @@ export default function MobileDisplay() {
 
     function filterDevices(devices: DeviceData[], inFilterOS: string, inFilterDeviceType: string)
     {
-        return setDisplayDevices(
-            devices.filter(
-                (d) =>
-                    (inFilterOS == "both" || d.os.toLowerCase() == inFilterOS) && 
-                    (inFilterDeviceType == "both" || d.type.toLowerCase() == inFilterDeviceType)
-            )
-        );
+        var newDevices =  devices.filter(
+            (d) =>
+                (inFilterOS == "both" || d.os.toLowerCase() == inFilterOS) && 
+                (inFilterDeviceType == "both" || d.type.toLowerCase() == inFilterDeviceType)
+        )
+
+        if (currentDevice != null)
+        {
+            if (!newDevices.some((d) => d.id == currentDevice.id))
+            {
+                setCurrentDevice(newDevices[0]);
+            }
+        }
+
+        setDisplayDevices(newDevices);
     }
 
     function onDeviceFilter(e: React.ChangeEvent<HTMLSelectElement>) {
@@ -71,6 +79,19 @@ export default function MobileDisplay() {
         filterDevices(devices, e.target.value, filterDeviceType);
     }
     
+    function onToggleCustom(newValue: boolean)
+    {
+        if (!newValue && currentDevice != null)
+        {
+            const thisDevice = devices.find((d) => d.id == currentDevice.id);
+            if (thisDevice != null)
+            {
+                setCurrentDevice({...thisDevice});
+            }
+        }
+        setUseCustom(newValue);
+    }
+
     function fetchDevices()
     {
         if (!hasFetched)
@@ -115,10 +136,6 @@ export default function MobileDisplay() {
 
             fetchAll();
         }
-        else
-        {
-            console.log("can't fetch!");
-        }
     }
 
     useEffect(() => {
@@ -144,7 +161,7 @@ export default function MobileDisplay() {
                 {
                     currentDevice != null && (
                         <>
-                                <div>Use Custom: <input type={"checkbox"} checked={useCustom} onChange={(e) => {setUseCustom(e.target.checked);}}/></div>
+                                <div>Use Custom: <input type={"checkbox"} checked={useCustom} onChange={(e) => {onToggleCustom(e.target.checked);}}/></div>
                                 <div>Name: <input type="text" disabled={true} value={currentDevice.name} /></div>
                                 <div>Width: <input type="text" disabled={!useCustom} value={currentDevice.width} onChange={(e) => setCurrentDevice({...currentDevice, width: Number(e.target.value)})}/> px</div>
                                 <div>Height: <input type="text" disabled={!useCustom} value={currentDevice.height} onChange={(e) => setCurrentDevice({...currentDevice, height: Number(e.target.value)})}/> px</div>
