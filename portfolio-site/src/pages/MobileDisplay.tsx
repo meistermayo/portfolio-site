@@ -143,6 +143,11 @@ export default function MobileDisplay() {
     }, [hasFetched]);
 
     return (<>
+    Problem Statement:<br/>
+    <br/>
+    Mobile devices often render at a very different physical size and pixel density. This lightweight tool displays text and images, accounting for pixel density, 
+    to display at physical size.<br/><br/>
+    The default screenPPI is assumed to be 93 -- standard for most 1080p monitors. Check with a physical measuring tape to verify.<br/><br/>
     <div className="relativeContainer">
         <MobileCanvas
             canvasRef={canvasRef}
@@ -207,5 +212,31 @@ export default function MobileDisplay() {
             <button onClick={()=>setImage(null)}>x</button>
         )
     }
+
+    <br/>
+    <br/>
+    About
+    <br/>
+    Stack
+    <ul>
+        <li>React frontend</li>
+        <ul>
+            <li>HTML5 Canvas element</li>
+        </ul>
+        <li>Python backend</li>
+        <ul>
+            <li>Uvicorn ASGI server</li>
+            <li>FastAPI framework</li>
+            <li>Render hosted</li>
+            <li>Web scraping</li>
+            <ul>
+                <li>Data from https://screensize.es/</li>
+                <li>beautiful soup (bs4) module</li>
+                <li>Supabase DB (PostgreSQL)</li>
+            </ul>
+            </ul>
+    </ul>
+
+    Click the <i>"Check out the Source!"</i> button to see this code under <i>MobileDisplay.tsx</i>
     </>);
 }
