@@ -81,7 +81,8 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
                         ctx.textBaseline = "bottom";
                         ctx.textAlign = "center";
                         ctx.fillStyle = "#558";
-                        ctx.fillText("Retrieving Device Data\n...", centerX, centerY);
+                        ctx.fillText("Retrieving Device Data...", centerX, centerY);
+                        ctx.fillText("This can take up to a minute due to cold start.", centerX, centerY+320);
 
                         const timeS = timeMS / 1000.0;
                         const conicGradient = ctx.createConicGradient(timeS*12.0, centerX, centerY)
