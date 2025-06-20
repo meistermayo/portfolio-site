@@ -18,8 +18,24 @@ export default function MobileDisplay() {
     const [currentDevice, setCurrentDevice] = useState<DeviceData>();
     const [zoom, setZoom] = useState(100);
     const [textSize, setTextSize] = useState(12);
+    const [image, setImage] = useState<HTMLImageElement | null>(null);
 
     const canvasRef: MutableRefObject<HTMLCanvasElement | null> = useRef(null);
+
+    function onImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+        const file = e.target.files ? e.target.files[0] : null;
+        if (file != null) {
+            const url = URL.createObjectURL(file);
+
+            const img = new Image();
+            img.onload = () => {
+                URL.revokeObjectURL(url);
+                setImage(img);
+            }
+
+            img.src= url;
+        }
+    }
 
     function onDeviceSelected(e: React.ChangeEvent<HTMLSelectElement>) {
         setUseCustom(false);
@@ -111,7 +127,16 @@ export default function MobileDisplay() {
 
     return (<>
     <div className="relativeContainer">
-        <MobileCanvas canvasRef={canvasRef} isFlipped={isFlipped} currentDevice={currentDevice} zoom={zoom} screenPPI={ppi} textSize={textSize} isFetching={isFetching}/>
+        <MobileCanvas
+            canvasRef={canvasRef}
+            isFlipped={isFlipped}
+            currentDevice={currentDevice}
+            zoom={zoom}
+            screenPPI={ppi}
+            textSize={textSize}
+            isFetching={isFetching}
+            image={image}
+        />
         <div className="z1">
             <div className="panel">
             <button onClick={() => {setFetched(false);}}>Fetch Device Data</button>
@@ -157,6 +182,13 @@ export default function MobileDisplay() {
             </div>
         </div>
     </div>
-
+    <br/>
+    <div>Upload Image</div>
+    <input type="file" id="img" name="img" accept="image/*" onChange={onImageUpload}></input>
+    {
+        (image != null) && (
+            <button onClick={()=>setImage(null)}>x</button>
+        )
+    }
     </>);
 }

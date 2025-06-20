@@ -16,13 +16,15 @@ interface Props
     screenPPI: number;
     textSize: number;
     isFetching: boolean;
+    image: HTMLImageElement | null;
 }
 
-export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom, screenPPI, textSize, isFetching} : Props) {
+export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom, screenPPI, textSize, isFetching, image} : Props) {
     
     const [viewPos, setViewPos] = useState<vec2>({x: 400, y: 200});
     const [mouseClickPos, setMouseClickPos] = useState<vec2>({x: 0, y: 0});
     const [isMouseDown, setIsMouseDown] = useState<boolean>(false);
+
     const animRef = useRef<number>();
 
     const handleMouseDown = (e : React.MouseEvent<HTMLCanvasElement>) => {
@@ -148,19 +150,29 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
                         // device ====================================================================================
                         if (currentDevice != null)
                         {
+
                             ctx.fillStyle = isMouseDown ? "#f39" : "#f06";
 
                             const width = isFlipped ? currentDevice.height : currentDevice.width;
                             const height = isFlipped ? currentDevice.width : currentDevice.height;
 
                             const ppiScale = 1.0 / currentDevice.ppi * (screenPPI);
-
                             ctx.fillRect(viewPos.x, viewPos.y, width*ppiScale*zoomPercent, height*ppiScale*zoomPercent);
+                            ctx.beginPath();
+                            ctx.rect(viewPos.x, viewPos.y, width*ppiScale*zoomPercent, height*ppiScale*zoomPercent);
+                            ctx.clip();
 
                             ctx.font = `${textSize*ppiScale*zoomPercent}px serif`;
                             ctx.textBaseline = "top";
                             ctx.fillStyle = "#004";
                             ctx.fillText("AaBbCcDdEe01234 /.,* (12 Pixel Font)", viewPos.x, viewPos.y);
+
+                            if (image != null)
+                            {
+                                ctx.drawImage(image, viewPos.x, viewPos.y + textSize*ppiScale*zoomPercent, image.width*ppiScale*zoomPercent, image.height*ppiScale*zoomPercent);
+                            }
+
+                            ctx.restore();
                         }
                     }
                 }
@@ -171,7 +183,7 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
 
         animRef.current = requestAnimationFrame(draw);
         return () => cancelAnimationFrame(Number(animRef.current));
-    }, [viewPos, zoom, currentDevice, isFlipped, isMouseDown, screenPPI, textSize, isFetching]);
+    }, [viewPos, zoom, currentDevice, isFlipped, isMouseDown, screenPPI, textSize, isFetching, image]);
 
     return (
         <canvas className="mobileCanvas"
