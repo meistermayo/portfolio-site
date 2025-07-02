@@ -1,6 +1,7 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { DeviceData } from "../types/DeviceData";
 import "./style/MobileCanvas.css"
+import useIsMobile from "../hooks/useIsMobile";
 
 interface vec2 {
     x: number;
@@ -20,6 +21,7 @@ interface Props
 }
 
 export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom, screenPPI, textSize, isFetching, image} : Props) {
+    const isMobile = useIsMobile();
     
     const [viewPos, setViewPos] = useState<vec2>({x: 400, y: 200});
     const [mouseClickPos, setMouseClickPos] = useState<vec2>({x: 0, y: 0});
@@ -72,7 +74,21 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
                 const ctx = canvasRef.current.getContext("2d");
                 if (ctx != null)
                 {
-                    if (isFetching)
+                    if (isMobile)
+                    {
+                        const centerX = canvasRef.current.width/2;
+                        const centerY = canvasRef.current.height/2;
+
+                        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+                        ctx.fillStyle = "#444"
+                        ctx.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+                        ctx.fillStyle = "#bbb"
+                        ctx.font = `16px serif`;
+                        ctx.textAlign = "center";
+                        ctx.fillText("Application not built for mobile", centerX, centerY);
+                        ctx.fillText("Please try on desktop", centerX, centerY+32);
+                    }
+                    else if (isFetching)
                     {
                         const centerX = canvasRef.current.width/2;
                         const centerY = canvasRef.current.height/2;

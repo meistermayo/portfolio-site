@@ -17,7 +17,7 @@ export default function Home() {
                     <img className="profileImage" src="/me af.jpg"/>
                 </div>
                 <h1>LUKE MAYO</h1>
-                <div style={{height: "200px"}}>
+                <div>
                     <p>
                         <br/>
                         High-energy and detail-oriented software engineer with work experience in C++, C# and Typescript.<br/>(Also built this website from scratch with
@@ -34,13 +34,13 @@ export default function Home() {
             </div>
 
             <div>
-                <div style={{height: "300px"}}>
+                <div>
                 <h2>Projects</h2>
                 <Line/>
-                <div style={{display: "grid", gridTemplateColumns: "1fr 1fr 1fr", textAlign: "center", padding: "64px"}}>
-                    <div ><Link to="MobileDisplay">Mobile Display Web App</Link><br/>(React, Typescript, Python)</div>
-                    <div ><Link to="//github.com/meistermayo">Github</Link><br/>(React, C++, C#)</div>
-                    <div ><Link to="">Itch.io Games</Link><br/>(C#, C++)</div>
+                <div style={{display: "grid", gridTemplateColumns: isMobile ? ("1fr") : ("1fr 1fr 1fr"), textAlign: "center", padding: "64px"}}>
+                    <div style={{marginBottom:"32px"}}><Link to="MobileDisplay">Mobile Display Web App</Link><br/>(React, Typescript, Python)</div>
+                    <div style={{marginBottom:"32px"}}><Link to="//github.com/meistermayo">Github</Link><br/>(React, C++, C#)</div>
+                    <div style={{marginBottom:"32px"}}><Link to="">Itch.io Games</Link><br/>(C#, C++)</div>
                 </div>
                 </div>
 
