@@ -42,7 +42,7 @@ export default function Home() {
                 <div style={{display: "grid", gridTemplateColumns: isMobile ? ("1fr") : ("1fr 1fr 1fr"), textAlign: "center", padding: "64px"}}>
                     <div style={{marginBottom:"32px"}}><Link to="MobileDisplay">Mobile Display Web App</Link><br/>(React, Typescript, Python)</div>
                     <div style={{marginBottom:"32px"}}><Link to="//github.com/meistermayo">Github</Link><br/>(React, C++, C#)</div>
-                    <div style={{marginBottom:"32px"}}><Link to="">Itch.io Games</Link><br/>(C#, C++)</div>
+                    <div style={{marginBottom:"32px"}}><Link to="//lukemayo.itch.io">Itch.io Games</Link><br/>(C#, C++)</div>
                 </div>
                 </div>
 
