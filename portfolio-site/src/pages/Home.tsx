@@ -17,16 +17,17 @@ export default function Home() {
                     <img className="profileImage" src="/me af.jpg"/>
                 </div>
                 <h1>LUKE MAYO</h1>
-                <p>
-                    
-                    <br/>
-                    High-energy and detail-oriented software engineer with work experience in C++, C# and Typescript.<br/>(Also built this website from scratch with
-                    <img src={reactLogo} className="logoIcon" alt="React logo" />
-                    React.js)
-                    <br/>
-                    <br/>
-                    <a href={resume}>Resume 🔗</a>
-                </p>
+                <div style={{height: "200px"}}>
+                    <p>
+                        <br/>
+                        High-energy and detail-oriented software engineer with work experience in C++, C# and Typescript.<br/>(Also built this website from scratch with
+                        <img src={reactLogo} className="logoIcon" alt="React logo" />
+                        React.js)
+                        <br/>
+                        <br/>
+                        <a href={resume}>Resume 🔗</a>
+                    </p>
+                </div>
             </div>
 
             <div>
