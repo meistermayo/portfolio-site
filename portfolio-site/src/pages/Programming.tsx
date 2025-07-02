@@ -16,22 +16,22 @@ export default function Programming() {
             </PageHeader>
             <br/>
 
-            <WorkCard title={"That Time I Got Trapped In An Office Dungeon"} img={"ttigtiaod.png"} link={"//heylezl.itch.io/that-time-i-got-trapped-in-a-office-dungeon-with-a-headset-strapped-to-my-face"}>
+            <WorkCard title={"That Time I Got Trapped In An Office Dungeon"} img={"ttigtiaod.png"} link={"//heylezl.itch.io/that-time-i-got-trapped-in-a-office-dungeon-with-a-headset-strapped-to-my-face"} techs={"NONE"}>
                 Chicaghoul 2024 gamejam project that reached over <b>100,000 plays</b> on gx.games! I handled HLSL coding, C# scripting, and audio.
             </WorkCard>
-            <WorkCard title={"Pillars of Creation"} img={"POC.png"} link={"//depaulgames.cdm.depaul.edu/pillars-of-creation/"}>
+            <WorkCard title={"Pillars of Creation"} img={"POC.png"} link={"//depaulgames.cdm.depaul.edu/pillars-of-creation/"} techs={"NONE"}>
                 My Senior Project was a real-time online trading card game, developed with C# in Unity.
                 During this project, I solved difficult networking bugs involving race conditions.
             </WorkCard>
             {displayGameEngine && 
-            <WorkCard title={"Game Engine"} img={"spiderhead.jpg"} link={"/IK"} >
+            <WorkCard title={"Game Engine"} img={"spiderhead.jpg"} link={"/IK"} techs={"NONE"}>
                 Developed IK and animation systems and API for a custom game engine at DePaul University, in C++.
             </WorkCard>
             }
-            <WorkCard title={"Itch.io"} img={"dwellingicon_edited.jpg"} link={"//lukemayo.itch.io/"}>
+            <WorkCard title={"Itch.io"} img={"dwellingicon_edited.jpg"} link={"//lukemayo.itch.io/"} techs={"NONE"}>
                 A large collection of game projects. My best work in Unity and Unreal on display.
             </WorkCard>
-            <WorkCard title={"This Website"} img={"thiswebsite.PNG"} link={"//lukemayo.net"}>
+            <WorkCard title={"This Website"} img={"thiswebsite.PNG"} link={"//lukemayo.net"} techs={"NONE"}>
                 You're looking at it!
                 Built in
                 <img src={reactLogo} className="logoIcon" alt="React logo" />

@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import Line from "./Line";
 import "./style/WorkCard.css"
 
 interface Props {
