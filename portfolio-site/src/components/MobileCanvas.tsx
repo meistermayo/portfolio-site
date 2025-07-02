@@ -56,11 +56,11 @@ export default function MobileCanvas({canvasRef, isFlipped, currentDevice, zoom,
         }
     }
     
-    const handleMouseUp = (e : React.MouseEvent<HTMLCanvasElement>) => {
+    const handleMouseUp = (_e : React.MouseEvent<HTMLCanvasElement>) => {
         setIsMouseDown(false);
     }
     
-    const handleMouseLeave = (e : React.MouseEvent<HTMLCanvasElement>) => {
+    const handleMouseLeave = (_e : React.MouseEvent<HTMLCanvasElement>) => {
         setIsMouseDown(false);
     }
 
