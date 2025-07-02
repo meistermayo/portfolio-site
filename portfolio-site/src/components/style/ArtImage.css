@@ -48,7 +48,7 @@
 
 
 .imageWrapper > .image {
-    opacity: 0.25;
+    opacity: 0.75;
 }
 
 .imageWrapper:hover > .image {
@@ -56,7 +56,7 @@
 }
 
 .imageWrapperMobile > .image {
-    opacity: 0.25;
+    opacity: 0.75;
 }
 
 .imageWrapperMobile:hover > .image {
