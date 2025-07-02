@@ -5,6 +5,7 @@ import SliderNumberInput from "../components/SliderNumberInput";
 import MobileCanvas from "../components/MobileCanvas";
 import "./style/MobileDisplay.css"
 import useIsMobile from "../hooks/useIsMobile";
+import FadeInWrapper from "../components/FadeInWrapper";
 
 export default function MobileDisplay() {
     const isMobile = useIsMobile();
@@ -145,7 +146,7 @@ export default function MobileDisplay() {
         fetchDevices();
     }, [hasFetched]);
 
-    return (<>
+    return (<FadeInWrapper>
     Problem Statement:<br/>
     <br/>
     Mobile devices often render at a very different physical size and pixel density. This lightweight tool displays text and images, accounting for pixel density, 
@@ -248,5 +249,5 @@ export default function MobileDisplay() {
     </ul>
 
     Click the <i>"Check out the Source!"</i> button to see this code under <i>MobileDisplay.tsx</i>
-    </>);
+    </FadeInWrapper>);
 }
