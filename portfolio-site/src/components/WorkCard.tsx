@@ -11,6 +11,9 @@ interface Props {
 
 export default function WorkCard({img, link, title, techs, children}: Props) {
     return (
-        <details><summary>{title} - <i>{techs}</i></summary><ul><li>{children}</li></ul></details>
+        <>
+            {false && (<>{img}, {link}</>)}
+            <details><summary>{title} - <i>{techs}</i></summary><ul><li>{children}</li></ul></details>
+        </>
     )
 }
