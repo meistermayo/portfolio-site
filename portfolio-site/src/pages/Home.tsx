@@ -25,7 +25,10 @@ export default function Home() {
                         React.js)
                         <br/>
                         <br/>
-                        <a href={resume}>Resume 🔗</a>
+            
+                        <Link to={resume}>Resume 🔗</Link>|
+                        <Link to="//linkedin.com/in/luke-mayo-1311bb132/">LinkedIn 👤</Link>|
+                        <Link to="mailto:mayom.luke@gmail.com">Email 📩</Link>
                     </p>
                 </div>
             </div>
@@ -37,11 +40,10 @@ export default function Home() {
                 <div style={{display: "grid", gridTemplateColumns: "1fr 1fr 1fr", textAlign: "center", padding: "64px"}}>
                     <div ><Link to="MobileDisplay">Mobile Display Web App</Link><br/>(React, Typescript, Python)</div>
                     <div ><Link to="//github.com/meistermayo">Github</Link><br/>(React, C++, C#)</div>
-                    <div ><Link to="//lukemayo.itch.io/">Itch.io Games</Link><br/>(C#, C++)</div>
+                    <div ><Link to="">Itch.io Games</Link><br/>(C#, C++)</div>
                 </div>
                 </div>
 
-                
                 <h2>Work History</h2>
                 <Line/>
                 <dl>
