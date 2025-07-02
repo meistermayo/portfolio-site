@@ -219,7 +219,7 @@ export default function MobileDisplay() {
             (image != null) && (
                 <button onClick={()=>setImage(null)}>x</button>
             )
-        })
+        }
         </>
     }
 
