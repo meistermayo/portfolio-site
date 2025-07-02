@@ -4,8 +4,11 @@ import { DeviceData } from "../types/DeviceData";
 import SliderNumberInput from "../components/SliderNumberInput";
 import MobileCanvas from "../components/MobileCanvas";
 import "./style/MobileDisplay.css"
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function MobileDisplay() {
+    const isMobile = useIsMobile();
+
     const [ppi, setPPI] = useState(93);
     const [useCustom, setUseCustom] = useState(false);
     const [hasFetched, setFetched] = useState(false);
@@ -159,58 +162,65 @@ export default function MobileDisplay() {
             isFetching={isFetching}
             image={image}
         />
-        <div className="z1">
-            <div className="panel">
-            <button onClick={() => {setFetched(false);}}>Fetch Device Data</button>
-            <button onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
-                {
-                    currentDevice != null && (
-                        <>
-                                <div>Use Custom: <input type={"checkbox"} checked={useCustom} onChange={(e) => {onToggleCustom(e.target.checked);}}/></div>
-                                <div>Name: <input type="text" disabled={true} value={currentDevice.name} /></div>
-                                <div>Width: <input type="text" disabled={!useCustom} value={currentDevice.width} onChange={(e) => setCurrentDevice({...currentDevice, width: Number(e.target.value)})}/> px</div>
-                                <div>Height: <input type="text" disabled={!useCustom} value={currentDevice.height} onChange={(e) => setCurrentDevice({...currentDevice, height: Number(e.target.value)})}/> px</div>
-                                <div>PPI: <br/><input type="text" disabled={!useCustom} value={currentDevice.ppi} onChange={(e) => setCurrentDevice({...currentDevice, ppi: Number(e.target.value)})}/></div>
-                                <div>Aspect Ratio: <input type="text" disabled={true} value={Math.round(currentDevice.width/currentDevice.height * 100) / 100} /></div>
-                        </>
-                    )
-                }
-                <br/>
-                <SliderNumberInput min={10} max={4000} resetValue={93} onValueChanged={(v) => setPPI(v.valueOf())}>Screen PPI</SliderNumberInput>
-            
-            <SliderNumberInput min={25} max={200} resetValue={100} onValueChanged={(v) => setZoom(v.valueOf())}>
-                Zoom: {zoom}%
-            </SliderNumberInput>
-            <SliderNumberInput min={10} max={96} resetValue={12} onValueChanged={(v) => setTextSize(v.valueOf())}>
-                Text-Size: {textSize}px
-            </SliderNumberInput>
+        {!isMobile && 
+            <div className="z1">
+                <div className="panel">
+                <button onClick={() => {setFetched(false);}}>Fetch Device Data</button>
+                <button onClick={() => {setFlipped(!isFlipped);}}>{isFlipped ? "Portrait" : "Landscape"}</button>
+                    {
+                        currentDevice != null && (
+                            <>
+                                    <div>Use Custom: <input type={"checkbox"} checked={useCustom} onChange={(e) => {onToggleCustom(e.target.checked);}}/></div>
+                                    <div>Name: <input type="text" disabled={true} value={currentDevice.name} /></div>
+                                    <div>Width: <input type="text" disabled={!useCustom} value={currentDevice.width} onChange={(e) => setCurrentDevice({...currentDevice, width: Number(e.target.value)})}/> px</div>
+                                    <div>Height: <input type="text" disabled={!useCustom} value={currentDevice.height} onChange={(e) => setCurrentDevice({...currentDevice, height: Number(e.target.value)})}/> px</div>
+                                    <div>PPI: <br/><input type="text" disabled={!useCustom} value={currentDevice.ppi} onChange={(e) => setCurrentDevice({...currentDevice, ppi: Number(e.target.value)})}/></div>
+                                    <div>Aspect Ratio: <input type="text" disabled={true} value={Math.round(currentDevice.width/currentDevice.height * 100) / 100} /></div>
+                            </>
+                        )
+                    }
+                    <br/>
+                    <SliderNumberInput min={10} max={4000} resetValue={93} onValueChanged={(v) => setPPI(v.valueOf())}>Screen PPI</SliderNumberInput>
+                
+                <SliderNumberInput min={25} max={200} resetValue={100} onValueChanged={(v) => setZoom(v.valueOf())}>
+                    Zoom: {zoom}%
+                </SliderNumberInput>
+                <SliderNumberInput min={10} max={96} resetValue={12} onValueChanged={(v) => setTextSize(v.valueOf())}>
+                    Text-Size: {textSize}px
+                </SliderNumberInput>
 
-            <br/>
-            <DeviceSelect devices={displayDevices} onSelect={onDeviceSelected}/>
-            <br/>
-            <div style={{display: "flex"}}>
-                <select value={filterDeviceType} onChange={onDeviceFilter}>
-                    <option value="phone">Phone</option>
-                    <option value="tablet">Tablet</option>
-                    <option value="both">Both</option>
-                </select>
                 <br/>
-                <select value={filterOS} onChange={onOSFilter}>
-                    <option value="ios">iOS</option>
-                    <option value="android">Android</option>
-                    <option value="both">Both</option>
-                </select>
+                <DeviceSelect devices={displayDevices} onSelect={onDeviceSelected}/>
+                <br/>
+                <div style={{display: "flex"}}>
+                    <select value={filterDeviceType} onChange={onDeviceFilter}>
+                        <option value="phone">Phone</option>
+                        <option value="tablet">Tablet</option>
+                        <option value="both">Both</option>
+                    </select>
+                    <br/>
+                    <select value={filterOS} onChange={onOSFilter}>
+                        <option value="ios">iOS</option>
+                        <option value="android">Android</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                </div>
             </div>
-            </div>
-        </div>
+        }
     </div>
     <br/>
-    <div>Upload Image</div>
-    <input type="file" id="img" name="img" accept="image/*" onChange={onImageUpload}></input>
-    {
-        (image != null) && (
-            <button onClick={()=>setImage(null)}>x</button>
-        )
+
+    {!isMobile && 
+        <>
+        <div>Upload Image</div>
+        <input type="file" id="img" name="img" accept="image/*" onChange={onImageUpload}></input>
+        {
+            (image != null) && (
+                <button onClick={()=>setImage(null)}>x</button>
+            )
+        })
+        </>
     }
 
     <br/>
