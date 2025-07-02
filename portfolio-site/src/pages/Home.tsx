@@ -26,7 +26,7 @@ export default function Home() {
                         <br/>
                         <br/>
             
-                        <Link to={resume}>Resume 🔗</Link>|
+                        <a href={resume}>Resume 🔗</a>|
                         <Link to="//linkedin.com/in/luke-mayo-1311bb132/">LinkedIn 👤</Link>|
                         <Link to="mailto:mayom.luke@gmail.com">Email 📩</Link>
                     </p>
