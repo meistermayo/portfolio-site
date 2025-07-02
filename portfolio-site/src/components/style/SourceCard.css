@@ -23,12 +23,17 @@
 }
 
 .sourceLink {
+    display: inline;
     font-size: 14pt;
     color: rgb(5, 17, 55);
+    text-align: left;
 }
 
 .sourceLink:hover {
+    display: inline;
     font-size: 16pt;
+    transform: scale(1);
     color: rgb(27, 93, 180);
+    text-align: left;
 }
 

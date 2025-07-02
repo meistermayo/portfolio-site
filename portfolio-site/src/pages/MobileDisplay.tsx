@@ -248,6 +248,7 @@ export default function MobileDisplay() {
             </ul>
     </ul>
 
-    Click the <i>"Check out the Source!"</i> button to see this code under <i>MobileDisplay.tsx</i>
+    <a style={{fontSize: "12pt"}} href= "//github.com/meistermayo/portfolio-site/blob/main/portfolio-site/src/pages/MobileDisplay.tsx">Page Source</a>
+    <a style={{fontSize: "12pt"}} href= "//github.com/meistermayo/web-scraper-py">Backend Source</a>
     </FadeInWrapper>);
 }
