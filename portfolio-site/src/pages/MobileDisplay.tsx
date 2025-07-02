@@ -150,7 +150,7 @@ export default function MobileDisplay() {
     <br/>
     Mobile devices often render at a very different physical size and pixel density. This lightweight tool displays text and images, accounting for pixel density, 
     to display at physical size.<br/><br/>
-    The default screenPPI is assumed to be 93 -- standard for most 1080p monitors. Check with a physical measuring tape to verify.<br/><br/>
+    The default screenPPI is assumed to be 93 -- standard for most 1080p monitors.<br/><br/>
     <div className="relativeContainer">
         <MobileCanvas
             canvasRef={canvasRef}
