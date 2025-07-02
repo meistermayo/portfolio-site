@@ -5,6 +5,7 @@ import ArtModal from "../components/ArtModal";
 
 import PageHeader from "../components/PageHeader"
 import FadeInWrapper from "../components/FadeInWrapper";
+import Music from "./Music";
 
 interface ArtContext {
     onClick: (i:string) => void,
@@ -25,7 +26,8 @@ export default function Art() {
     console.log(img);
     return (
         <FadeInWrapper>
-            <PageHeader title="Visual">
+            <Music/>
+            <PageHeader title="Art">
                 In addition to being a technical-minded engineer, I dabble in art asset creation.
                 I can make a wide variety of assets from Vector-based UI elements, low-res pixel art, 
                 high-res illustration, and 3d models.

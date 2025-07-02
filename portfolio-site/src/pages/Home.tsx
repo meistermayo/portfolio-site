@@ -26,9 +26,11 @@ export default function Home() {
                         <br/>
                         <br/>
             
-                        <a href={resume}>Resume 🔗</a>|
-                        <Link to="//linkedin.com/in/luke-mayo-1311bb132/">LinkedIn 👤</Link>|
-                        <Link to="mailto:mayom.luke@gmail.com">Email 📩</Link>
+                        <h3>
+                            <a href={resume}>Resume 🔗</a> | <Link to=
+                            "//linkedin.com/in/luke-mayo-1311bb132/">LinkedIn 👤</Link> |  <Link to=
+                            "mailto:mayom.luke@gmail.com">Email 📩</Link>
+                        </h3>
                     </p>
                 </div>
             </div>
@@ -44,6 +46,8 @@ export default function Home() {
                 </div>
                 </div>
 
+                { false && 
+                <>
                 <h2>Work History</h2>
                 <Line/>
                 <dl>
@@ -105,7 +109,8 @@ export default function Home() {
                         </WorkCard>
                     </dd>
                 </dl>
-
+                </>
+                }
             </div>
         </FadeInWrapper>
     )

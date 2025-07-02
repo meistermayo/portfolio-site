@@ -10,7 +10,7 @@ export default function Music(){
 
     return (
         <FadeInWrapper>
-            <PageHeader title="Audio">
+            <PageHeader title="Music">
                 In addition to programming, I enjoy music composition and sound design as a hobby. I've written a wide variety of compositions using Ableton Live 10 Suite.
             </PageHeader>
 

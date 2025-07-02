@@ -10,8 +10,7 @@ export default function Topbar() {
             <h3>Luke Mayo<br/></h3>
             <div className={isMobile ? "linksMobile" : "links"}>
                 <Link to="">About</Link>
-                <Link to="Music">Music</Link>
-                <Link to="Art">Art</Link>
+                <Link to="Art">Hobbies</Link>
             </div>
         </div>
     )
