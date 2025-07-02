@@ -55,6 +55,7 @@ h4 {
 
 a {
   font-size:18pt;
+  display: inline-block;
   font-weight: 500;
   color: rgb(0, 171, 171);
   text-decoration: inherit;
@@ -64,7 +65,8 @@ a {
 
 a:hover {
   color: rgb(0, 228, 175);
-  font-size: 24pt;
+  display: inline-block;
+  transform: scale(1.2);
   font-weight: bold;
   transition: 200ms;
 }
