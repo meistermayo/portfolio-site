@@ -5,7 +5,7 @@ import WorkCard from "../components/WorkCard";
 import FadeInWrapper from "../components/FadeInWrapper";
 import Line from "../components/Line";
 import { Link } from "react-router-dom";
-import resume from "../assets/Resume - Luke Mayo - Software Engineer - 2025.pdf"
+import resume from "../assets/Resume - Luke Mayo - Software Engineer - 2025 ndx.pdf"
 
 export default function Home() {
     const isMobile = useIsMobile();
